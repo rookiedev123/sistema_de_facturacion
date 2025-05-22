@@ -12,54 +12,66 @@ namespace sistema_de_facturacion.Services.Facturacion
     public class Articulo : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         private string codigo;
-        private double precio;
-        private double cantidad;
-        private double descuento;
-        private double totalDescuento;
-        private double totalPagar;
+        private string descripcion;
+        private decimal precio;
+        private decimal cantidad;
+        private decimal descuento;
+        private decimal total;
+        private decimal totalDesc;
+        private decimal totalNeto;
 
         public string Codigo 
         { 
             get => codigo;
             set { if (codigo != value) { codigo = value; } } 
         }
-        public double Precio
+        public decimal Precio
         {
             get => precio;
             set { if (precio != value) { precio = value; } }
         }
-        public double Cantidad
+
+        public string Descripcion { get => descripcion; set => descripcion = value; }
+
+        public decimal Cantidad
         {
             get => cantidad;
             set { if (cantidad != value) { cantidad = value; OnPropertyChanged(nameof(Cantidad)); } }
         }
-        public double Descuento
+        public decimal Descuento
         {
-            get => descuento;
             set { if (descuento != value) { descuento = value; } }
         }
-        public double TotalDescuento
+
+        public decimal Total
         {
-            get => totalDescuento;
-            set { if (totalDescuento != value) { totalDescuento = value; OnPropertyChanged(nameof(TotalDescuento)); } }
+            get => total;
+            set { if (total != value) { total = value; OnPropertyChanged(nameof(Total)); } }
         }
-        public double TotalPagar
+        public decimal TotalDesc
         {
-            get => totalPagar;
-            set { if (totalPagar != value) { totalPagar = value; OnPropertyChanged(nameof(TotalPagar)); } }
+            get => totalDesc;
+            set { if (totalDesc != value) { totalDesc = value; OnPropertyChanged(nameof(TotalDesc)); } }
+        }
+        public decimal TotalNeto
+        {
+            get => totalNeto;
+            set { if (totalNeto != value) { totalNeto = value; OnPropertyChanged(nameof(TotalNeto)); } }
         }
 
-        public void CalcTotalDescuento() {
 
-            double precioCalculado = this.precio * this.cantidad;
-            this.TotalDescuento = Math.Round(precioCalculado - (precioCalculado * this.descuento),2);
-        }
+        public void CalcTotales(List<Impuesto> impuestos) {
 
-        public void CalcTotalPagar(List<Impuesto> impuestos){
+            Total = Math.Round(this.precio * this.cantidad, 2);
+            TotalDesc = Math.Round((total * descuento), 2);
 
-            foreach(Impuesto imp in impuestos) {
-                this.TotalPagar = Math.Round(this.TotalDescuento * ((imp.Valor + 1)),2);
+            decimal temporalNeto = (Total- TotalDesc);
+
+            foreach (Impuesto imp in impuestos)
+            {
+                this.TotalNeto = Math.Round(temporalNeto + (temporalNeto * imp.Valor), 2); ;
             }
 
         }

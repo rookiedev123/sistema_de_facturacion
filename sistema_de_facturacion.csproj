@@ -48,6 +48,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.2.1.66\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=6.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.SqlClient.6.0.2\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -63,16 +69,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FacturaForm.cs">
+    <Compile Include="FormsViews\FacturaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FacturaForm.Designer.cs">
+    <Compile Include="FormsViews\FacturaForm.Designer.cs">
       <DependentUpon>FacturaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TicketForm.cs">
+    <Compile Include="FormsViews\TicketForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TicketForm.Designer.cs">
+    <Compile Include="FormsViews\TicketForm.Designer.cs">
       <DependentUpon>TicketForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -81,15 +87,21 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Connections\IConnectionString.cs" />
+    <Compile Include="Models\Connections\SqlDataConn.cs" />
+    <Compile Include="Models\FacturacionModel.cs" />
+    <Compile Include="Models\Provider\IProvider.cs" />
+    <Compile Include="Models\Provider\PatternResult.cs" />
+    <Compile Include="Models\Provider\ProviderSQL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Facturacion\Factura.cs" />
     <Compile Include="Services\Facturacion\Articulo.cs" />
     <Compile Include="Services\Facturacion\Impuesto.cs" />
-    <EmbeddedResource Include="Forms\FacturaForm.resx">
+    <EmbeddedResource Include="FormsViews\FacturaForm.resx">
       <DependentUpon>FacturaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TicketForm.resx">
+    <EmbeddedResource Include="FormsViews\TicketForm.resx">
       <DependentUpon>TicketForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -103,7 +115,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,9 +144,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Data\ferreteria_facturacion.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -140,6 +151,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ferreteria_facturacion.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\coin.png" />
+    <None Include="Resources\pay.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\error.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

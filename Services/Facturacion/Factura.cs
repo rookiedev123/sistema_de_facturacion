@@ -10,13 +10,31 @@ namespace sistema_de_facturacion.Services.Facturacion
 {
     public class Factura
     {
-        private string facturaId;
         private List<Impuesto> impuestos;
         public BindingList<Articulo> articulos = new BindingList<Articulo>();
-        public Factura(List<Impuesto> impuestos) { 
+
+        private string facturaId;
+        private string documento;
+        private string cliente;
+        private string tipoPago;
+        private decimal total;
+        private decimal totalDesc;
+        private decimal totalNeto;
+
+        public Factura(List<Impuesto> impuestos) {
             this.impuestos = impuestos;
         }
 
+
+        public string FacturaId { get => facturaId; set => facturaId = value; }
+        public string Documento { get => documento; set => documento = value; }
+        public string Cliente { get => cliente; set => cliente = value; }
+        public string TipoPago { get => tipoPago; set => tipoPago = value; }
+        public decimal Total { get => total; }
+        public decimal TotalDesc { get => totalDesc; }
+        public decimal TotalNeto { get => totalNeto;}
+
+   
 
         public void AgregarArticulo(Articulo articulo) {
 
@@ -25,25 +43,19 @@ namespace sistema_de_facturacion.Services.Facturacion
             int index = this.articulos.ToList().FindIndex(predicate);
 
             if (index == -1) {
-                articulo.CalcTotalDescuento();
-                articulo.CalcTotalPagar(this.impuestos);
+                articulo.CalcTotales(this.impuestos);
                 this.articulos.Add(articulo);
                 return;
             }
 
             this.articulos[index].Cantidad += 1;
-
-            this.articulos[index].CalcTotalDescuento();
-            this.articulos[index].CalcTotalPagar(this.impuestos);
-
-
-            return;
-
+            this.articulos[index].CalcTotales(this.impuestos); 
 
         }
 
         public void RemoverArticulo(Articulo articulo)
         {
+            /*
 
             Predicate<Articulo> predicate = ((a) => a.Codigo.Equals(articulo.Codigo));
 
@@ -66,17 +78,21 @@ namespace sistema_de_facturacion.Services.Facturacion
             this.articulos[index].CalcTotalPagar(this.impuestos);
 
             return;
+            */
 
         }
 
-        public double CalcularFacturaTotal() {
-
-            double total = 0;
+        public void CalcularFacturaTotales() {
+            
+            total = 0;
+            totalNeto = 0;
+            totalDesc = 0;
             foreach (Articulo item in articulos.ToList()){
-                total += item.TotalPagar;
+                total += item.Total;
+                totalNeto += item.TotalNeto;
+                totalDesc += item.TotalDesc;
             }
 
-            return total;
         }
 
         public void LimpiarArticulos() {
