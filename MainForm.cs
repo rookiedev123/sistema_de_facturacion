@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using sistema_de_facturacion.Forms;
+using sistema_de_facturacion.FormsViews;
 using sistema_de_facturacion.Services.Facturacion;
 
 namespace sistema_de_facturacion
@@ -20,6 +21,13 @@ namespace sistema_de_facturacion
         {
             facturaForm = new FacturaForm();
             facturaForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmClientes frm = new FrmClientes();
+            frm.Show();
+
         }
     }
 }

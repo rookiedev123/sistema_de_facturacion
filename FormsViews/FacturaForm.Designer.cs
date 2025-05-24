@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacturaForm));
             this.articulos_dataGridView = new System.Windows.Forms.DataGridView();
             this.header_codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,15 +83,15 @@
             this.header_total_descuento,
             this.header_total,
             this.header_total_pagar});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.articulos_dataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.NullValue = null;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.articulos_dataGridView.DefaultCellStyle = dataGridViewCellStyle12;
             this.articulos_dataGridView.Location = new System.Drawing.Point(34, 152);
             this.articulos_dataGridView.Name = "articulos_dataGridView";
             this.articulos_dataGridView.Size = new System.Drawing.Size(1097, 239);
@@ -124,8 +124,8 @@
             // header_precio
             // 
             this.header_precio.DataPropertyName = "Precio";
-            dataGridViewCellStyle1.Format = "C2";
-            this.header_precio.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Format = "C2";
+            this.header_precio.DefaultCellStyle = dataGridViewCellStyle9;
             this.header_precio.FillWeight = 23.26558F;
             this.header_precio.HeaderText = "PRECIO";
             this.header_precio.Name = "header_precio";
@@ -134,8 +134,8 @@
             // header_total_descuento
             // 
             this.header_total_descuento.DataPropertyName = "TotalDesc";
-            dataGridViewCellStyle2.Format = "C2";
-            this.header_total_descuento.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Format = "C2";
+            this.header_total_descuento.DefaultCellStyle = dataGridViewCellStyle10;
             this.header_total_descuento.FillWeight = 23.26558F;
             this.header_total_descuento.HeaderText = "DESCUENTO";
             this.header_total_descuento.Name = "header_total_descuento";
@@ -151,8 +151,8 @@
             // header_total_pagar
             // 
             this.header_total_pagar.DataPropertyName = "TotalNeto";
-            dataGridViewCellStyle3.Format = "C2";
-            this.header_total_pagar.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Format = "C2";
+            this.header_total_pagar.DefaultCellStyle = dataGridViewCellStyle11;
             this.header_total_pagar.FillWeight = 23.26558F;
             this.header_total_pagar.HeaderText = "TOTAL PAGAR";
             this.header_total_pagar.Name = "header_total_pagar";
@@ -256,7 +256,7 @@
             this.txtTotal.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtTotal.Location = new System.Drawing.Point(930, 479);
+            this.txtTotal.Location = new System.Drawing.Point(930, 447);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(201, 26);
@@ -269,7 +269,7 @@
             this.txtDescTotal.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtDescTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescTotal.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtDescTotal.Location = new System.Drawing.Point(930, 447);
+            this.txtDescTotal.Location = new System.Drawing.Point(930, 479);
             this.txtDescTotal.Name = "txtDescTotal";
             this.txtDescTotal.ReadOnly = true;
             this.txtDescTotal.Size = new System.Drawing.Size(201, 26);
@@ -346,6 +346,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancelar.CausesValidation = false;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -356,10 +357,12 @@
             this.btnCancelar.TabStop = false;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnFacturar
             // 
             this.btnFacturar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFacturar.CausesValidation = false;
             this.btnFacturar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFacturar.Image = global::sistema_de_facturacion.Properties.Resources.coin;
             this.btnFacturar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -370,6 +373,7 @@
             this.btnFacturar.TabStop = false;
             this.btnFacturar.Text = "COBRAR";
             this.btnFacturar.UseVisualStyleBackColor = true;
+            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
             // txtPago
             // 
@@ -381,6 +385,7 @@
             this.txtPago.TabIndex = 5;
             this.txtPago.TextChanged += new System.EventHandler(this.txtPago_TextChanged);
             this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
+            this.txtPago.Validating += new System.ComponentModel.CancelEventHandler(this.txtPago_Validating);
             // 
             // label6
             // 

@@ -8,6 +8,7 @@ using sistema_de_facturacion.Models;
 using sistema_de_facturacion.Models.Connections;
 using sistema_de_facturacion.Models.Provider;
 using sistema_de_facturacion.Services.Facturacion;
+using sistema_de_facturacion.Services.PdfGenerador;
 
 
 namespace sistema_de_facturacion.Forms
@@ -16,14 +17,15 @@ namespace sistema_de_facturacion.Forms
     {
         private Factura factura;
         private string[] productoCache;
+        List<Impuesto> impuestos;
         private FacturacionModel model;
         public FacturaForm()
         {
             InitializeComponent();
-            List<Impuesto> impuesto = new List<Impuesto>() {
+            impuestos = new List<Impuesto>() {
                 new Impuesto("IVA",0.13m)
             };
-            this.factura = new Factura(impuesto);
+            this.factura = new Factura(impuestos);
             articulos_dataGridView.DataSource = factura.articulos;
             cboTipoDocumento.Select();
 
@@ -123,9 +125,6 @@ namespace sistema_de_facturacion.Forms
            
 
         }
-
-
-
         private void btn_facturar_Click(object sender, EventArgs e)
         {
             TicketForm ticket = new TicketForm(this.factura);
@@ -286,6 +285,19 @@ namespace sistema_de_facturacion.Forms
 
 
         }
+        private void txtPago_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if(decimal.TryParse(txtPago.Text,out decimal pago)){
+                MessageBox.Show("Debe ingresar un número valido", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+            }
+
+            if (pago < factura.TotalNeto) {
+                MessageBox.Show("No se ha cubierto el pago", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+            }
+        }
+
 
         //Eventos generales
         private void controls_KeyDown(object sender, KeyEventArgs e)
@@ -297,5 +309,34 @@ namespace sistema_de_facturacion.Forms
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+            cboTipoDocumento.SelectedIndex = -1;
+            mktxtCodigoCliente.Text = String.Empty;
+            mktxtCodigoCliente.Mask = String.Empty;
+            txtNombreCliente.Text = String.Empty;
+            cboTipoPago.SelectedIndex = -1;
+            txtCodigoProducto.Text = String.Empty;
+            txtPago.Text = String.Empty;
+            txtTotal.Text = String.Empty;
+            txtDescTotal.Text = String.Empty;
+            txtNetoTotal.Text = String.Empty;
+            txtDevolver.Text = String.Empty;
+
+
+            factura = null;
+            factura = new Factura(impuestos);
+            articulos_dataGridView.DataSource = factura.articulos;
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            FacturaPDF  fctPdf = new FacturaPDF();
+
+            fctPdf.CrearFactura();
+            fctPdf.OpenFile();
+
+        }
     }
 }
