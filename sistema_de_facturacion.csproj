@@ -75,28 +75,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CientesDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CientesDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FormsViews\FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormsViews\FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsViews\FacturaForm.cs">
+    <Compile Include="FormsViews\FrmFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsViews\FacturaForm.Designer.cs">
-      <DependentUpon>FacturaForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormsViews\TicketForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormsViews\TicketForm.Designer.cs">
-      <DependentUpon>TicketForm.cs</DependentUpon>
+    <Compile Include="FormsViews\FrmFactura.Designer.cs">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -110,20 +99,23 @@
     <Compile Include="Models\Provider\IProvider.cs" />
     <Compile Include="Models\Provider\PatternResult.cs" />
     <Compile Include="Models\Provider\ProviderSQL.cs" />
+    <Compile Include="Datasets\ProductosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductosDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Facturacion\Factura.cs" />
     <Compile Include="Services\Facturacion\Articulo.cs" />
     <Compile Include="Services\Facturacion\Impuesto.cs" />
     <Compile Include="Services\PdfGenerador\FacturaPDF.cs" />
-    <EmbeddedResource Include="FormsViews\FacturaForm.resx">
-      <DependentUpon>FacturaForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormsViews\FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsViews\TicketForm.resx">
-      <DependentUpon>TicketForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormsViews\FrmFactura.resx">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -138,18 +130,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="CientesDataSet.xsc">
-      <DependentUpon>CientesDataSet.xsd</DependentUpon>
+    <None Include="packages.config" />
+    <None Include="Datasets\ProductosDataSet.xsc">
+      <DependentUpon>ProductosDataSet.xsd</DependentUpon>
     </None>
-    <None Include="CientesDataSet.xsd">
+    <None Include="Datasets\ProductosDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CientesDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>ProductosDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="CientesDataSet.xss">
-      <DependentUpon>CientesDataSet.xsd</DependentUpon>
+    <None Include="Datasets\ProductosDataSet.xss">
+      <DependentUpon>ProductosDataSet.xsd</DependentUpon>
     </None>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -177,11 +169,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\ferreteria_facturacion.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\ferreteria_facturacion_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ferreteria_facturacion.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\coin.png" />
     <None Include="Resources\pay.png" />
