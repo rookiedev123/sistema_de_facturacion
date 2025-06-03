@@ -7,8 +7,8 @@ using System.Windows.Forms;
 using sistema_de_facturacion.Models;
 using sistema_de_facturacion.Models.Connections;
 using sistema_de_facturacion.Models.Provider;
+using sistema_de_facturacion.Services.Documento;
 using sistema_de_facturacion.Services.Facturacion;
-using sistema_de_facturacion.Services.PdfGenerador;
 
 
 namespace sistema_de_facturacion.FormsViews
@@ -327,10 +327,10 @@ namespace sistema_de_facturacion.FormsViews
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            FacturaPDF  fctPdf = new FacturaPDF();
+            IFacturaGenerator  facturaArchivo = new FiscalPDF();
 
-            fctPdf.CrearFactura();
-            fctPdf.OpenFile();
+            facturaArchivo.GenerarFactura(factura);
+            facturaArchivo.MostrarArchivo();
 
         }
     }

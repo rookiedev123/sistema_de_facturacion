@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sistema_de_facturacion.Datasets;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,79 +18,53 @@ namespace sistema_de_facturacion.FormsViews
             InitializeComponent();
         }
 
-        private void productosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void clientesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.productosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.productosDataSet);
+            this.clientesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.clientesDataSet);
+
+        }
+
+        private void clientesBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.clientesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.clientesDataSet);
 
         }
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'productosDataSet.productos' Puede moverla o quitarla según sea necesario.
-            this.productosTableAdapter.Fill(this.productosDataSet.productos);
-            this.productosTableAdapter.ClearBeforeFill = true;
+            // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.clientes' Puede moverla o quitarla según sea necesario.
+            this.clientesTableAdapter.Fill(this.clientesDataSet.clientes);
 
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            this.productosBindingSource.AddNew();
-            btnAgregar.Enabled = false;
-            codigoMaskedTextBox.Select();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!this.Validate()) {
+            if (!this.Validate())
+            {
                 MessageBox.Show("Ingrese los campos necesarios");
                 return;
             }
-            this.productosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.productosDataSet);
+            this.clientesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.clientesDataSet);
             btnAgregar.Enabled = true;
-         
 
-
-        }
-
-        /*
-        private void productosDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            MessageBox.Show(e.Exception.Message);
-            btnAgregar.Enabled = true;
-            e.Cancel = true;
-            this.productosBindingSource.CancelEdit();
-            this.productosDataSet.RejectChanges();
-            this.productosTableAdapter.Fill(productosDataSet.productos);
-
-
-        }
-        */
-
-        private void productosDataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            DataGridView dt = sender as DataGridView;
-
-        }
-
-        private void codigoMaskedTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            MaskedTextBox maskedTextBox = sender as MaskedTextBox;
-
-            if(!maskedTextBox.MaskFull){
-                MessageBox.Show("Debe completar el código");
-                e.Cancel = true;
-            };
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.productosBindingSource.CancelEdit(); 
-            this.productosDataSet.RejectChanges();
+            this.clientesBindingSource.CancelEdit();
+            this.clientesDataSet.RejectChanges();
             btnAgregar.Enabled = true;
 
+        }
+
+        private void FrmProductos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            clientesDataSet.Dispose();
         }
     }
 }

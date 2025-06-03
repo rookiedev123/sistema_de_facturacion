@@ -24,7 +24,7 @@ namespace sistema_de_facturacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmClientes frm = new FrmClientes();
+            FrmProductos frm = new FrmProductos();
             frm.Show();
 
         }

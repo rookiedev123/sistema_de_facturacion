@@ -21,6 +21,7 @@ namespace sistema_de_facturacion.Services.Facturacion
         private decimal total;
         private decimal totalDesc;
         private decimal totalNeto;
+        private decimal impuestosAplicados;
 
         public string Codigo 
         { 
@@ -61,17 +62,20 @@ namespace sistema_de_facturacion.Services.Facturacion
             set { if (totalNeto != value) { totalNeto = value; OnPropertyChanged(nameof(TotalNeto)); } }
         }
 
+        public decimal ImpuestosAplicados { get => impuestosAplicados; }
 
         public void CalcTotales(List<Impuesto> impuestos) {
 
             Total = Math.Round(this.precio * this.cantidad, 2);
             TotalDesc = Math.Round((total * descuento), 2);
+            impuestosAplicados = 0;
 
             decimal temporalNeto = (Total- TotalDesc);
 
             foreach (Impuesto imp in impuestos)
             {
-                this.TotalNeto = Math.Round(temporalNeto + (temporalNeto * imp.Valor), 2); ;
+                impuestosAplicados += Math.Round((temporalNeto * imp.Valor),2);
+                this.TotalNeto = Math.Round(temporalNeto + (temporalNeto * imp.Valor), 2);
             }
 
         }

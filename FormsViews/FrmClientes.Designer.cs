@@ -29,114 +29,71 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label producto_idLabel;
-            System.Windows.Forms.Label codigoLabel;
-            System.Windows.Forms.Label descripcionLabel;
-            System.Windows.Forms.Label precioLabel;
-            System.Windows.Forms.Label descuentoLabel;
+            System.Windows.Forms.Label documentIdLabel;
+            System.Windows.Forms.Label nombreCompletoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.productosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productosDataSet = new sistema_de_facturacion.Datasets.ProductosDataSet();
+            this.clientesDataSet = new sistema_de_facturacion.Datasets.ClientesDataSet();
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesTableAdapter = new sistema_de_facturacion.Datasets.ClientesDataSetTableAdapters.clientesTableAdapter();
+            this.tableAdapterManager = new sistema_de_facturacion.Datasets.ClientesDataSetTableAdapters.TableAdapterManager();
+            this.clientesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.documentIdTextBox = new System.Windows.Forms.TextBox();
+            this.nombreCompletoTextBox = new System.Windows.Forms.TextBox();
+            this.clientesDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.productosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.productosDataGridView = new System.Windows.Forms.DataGridView();
+            this.clientesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.producto_idTextBox = new System.Windows.Forms.TextBox();
-            this.codigoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.descripcionTextBox = new System.Windows.Forms.TextBox();
-            this.precioTextBox = new System.Windows.Forms.TextBox();
-            this.descuentoTextBox = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.productosTableAdapter = new sistema_de_facturacion.Datasets.ProductosDataSetTableAdapters.productosTableAdapter();
-            this.tableAdapterManager = new sistema_de_facturacion.Datasets.ProductosDataSetTableAdapters.TableAdapterManager();
-            producto_idLabel = new System.Windows.Forms.Label();
-            codigoLabel = new System.Windows.Forms.Label();
-            descripcionLabel = new System.Windows.Forms.Label();
-            precioLabel = new System.Windows.Forms.Label();
-            descuentoLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingNavigator)).BeginInit();
-            this.productosBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).BeginInit();
+            documentIdLabel = new System.Windows.Forms.Label();
+            nombreCompletoLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingNavigator)).BeginInit();
+            this.clientesBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // producto_idLabel
+            // clientesDataSet
             // 
-            producto_idLabel.AutoSize = true;
-            producto_idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            producto_idLabel.Location = new System.Drawing.Point(38, 72);
-            producto_idLabel.Name = "producto_idLabel";
-            producto_idLabel.Size = new System.Drawing.Size(92, 20);
-            producto_idLabel.TabIndex = 13;
-            producto_idLabel.Text = "producto id:";
+            this.clientesDataSet.DataSetName = "ClientesDataSet";
+            this.clientesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // codigoLabel
+            // clientesBindingSource
             // 
-            codigoLabel.AutoSize = true;
-            codigoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            codigoLabel.Location = new System.Drawing.Point(71, 104);
-            codigoLabel.Name = "codigoLabel";
-            codigoLabel.Size = new System.Drawing.Size(60, 20);
-            codigoLabel.TabIndex = 15;
-            codigoLabel.Text = "codigo:";
+            this.clientesBindingSource.DataMember = "clientes";
+            this.clientesBindingSource.DataSource = this.clientesDataSet;
             // 
-            // descripcionLabel
+            // clientesTableAdapter
             // 
-            descripcionLabel.AutoSize = true;
-            descripcionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            descripcionLabel.Location = new System.Drawing.Point(38, 136);
-            descripcionLabel.Name = "descripcionLabel";
-            descripcionLabel.Size = new System.Drawing.Size(93, 20);
-            descripcionLabel.TabIndex = 17;
-            descripcionLabel.Text = "descripcion:";
+            this.clientesTableAdapter.ClearBeforeFill = true;
             // 
-            // precioLabel
+            // tableAdapterManager
             // 
-            precioLabel.AutoSize = true;
-            precioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            precioLabel.Location = new System.Drawing.Point(75, 213);
-            precioLabel.Name = "precioLabel";
-            precioLabel.Size = new System.Drawing.Size(56, 20);
-            precioLabel.TabIndex = 19;
-            precioLabel.Text = "precio:";
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.clientesTableAdapter = this.clientesTableAdapter;
+            this.tableAdapterManager.UpdateOrder = sistema_de_facturacion.Datasets.ClientesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // descuentoLabel
+            // clientesBindingNavigator
             // 
-            descuentoLabel.AutoSize = true;
-            descuentoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            descuentoLabel.Location = new System.Drawing.Point(43, 245);
-            descuentoLabel.Name = "descuentoLabel";
-            descuentoLabel.Size = new System.Drawing.Size(88, 20);
-            descuentoLabel.TabIndex = 21;
-            descuentoLabel.Text = "descuento:";
-            // 
-            // productosBindingNavigator
-            // 
-            this.productosBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.productosBindingNavigator.BindingSource = this.productosBindingSource;
-            this.productosBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.productosBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.productosBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.clientesBindingNavigator.BindingSource = this.clientesBindingSource;
+            this.clientesBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.clientesBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.clientesBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -148,17 +105,146 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.productosBindingNavigatorSaveItem});
-            this.productosBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.productosBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.productosBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.productosBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.productosBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.productosBindingNavigator.Name = "productosBindingNavigator";
-            this.productosBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productosBindingNavigator.Size = new System.Drawing.Size(985, 25);
-            this.productosBindingNavigator.TabIndex = 0;
-            this.productosBindingNavigator.Text = "bindingNavigator1";
+            this.clientesBindingNavigatorSaveItem});
+            this.clientesBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.clientesBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.clientesBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.clientesBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.clientesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.clientesBindingNavigator.Name = "clientesBindingNavigator";
+            this.clientesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.clientesBindingNavigator.Size = new System.Drawing.Size(905, 25);
+            this.clientesBindingNavigator.TabIndex = 0;
+            this.clientesBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // documentIdLabel
+            // 
+            documentIdLabel.AutoSize = true;
+            documentIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            documentIdLabel.Location = new System.Drawing.Point(22, 59);
+            documentIdLabel.Name = "documentIdLabel";
+            documentIdLabel.Size = new System.Drawing.Size(102, 20);
+            documentIdLabel.TabIndex = 1;
+            documentIdLabel.Text = "document Id:";
+            // 
+            // documentIdTextBox
+            // 
+            this.documentIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "documentId", true));
+            this.documentIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.documentIdTextBox.Location = new System.Drawing.Point(165, 56);
+            this.documentIdTextBox.Name = "documentIdTextBox";
+            this.documentIdTextBox.Size = new System.Drawing.Size(180, 26);
+            this.documentIdTextBox.TabIndex = 2;
+            // 
+            // nombreCompletoLabel
+            // 
+            nombreCompletoLabel.AutoSize = true;
+            nombreCompletoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nombreCompletoLabel.Location = new System.Drawing.Point(22, 91);
+            nombreCompletoLabel.Name = "nombreCompletoLabel";
+            nombreCompletoLabel.Size = new System.Drawing.Size(139, 20);
+            nombreCompletoLabel.TabIndex = 3;
+            nombreCompletoLabel.Text = "nombre Completo:";
+            // 
+            // nombreCompletoTextBox
+            // 
+            this.nombreCompletoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "nombreCompleto", true));
+            this.nombreCompletoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreCompletoTextBox.Location = new System.Drawing.Point(165, 88);
+            this.nombreCompletoTextBox.Multiline = true;
+            this.nombreCompletoTextBox.Name = "nombreCompletoTextBox";
+            this.nombreCompletoTextBox.Size = new System.Drawing.Size(180, 57);
+            this.nombreCompletoTextBox.TabIndex = 4;
+            // 
+            // clientesDataGridView
+            // 
+            this.clientesDataGridView.AllowUserToAddRows = false;
+            this.clientesDataGridView.AllowUserToDeleteRows = false;
+            this.clientesDataGridView.AutoGenerateColumns = false;
+            this.clientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.clientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.clientesDataGridView.DataSource = this.clientesBindingSource;
+            this.clientesDataGridView.Location = new System.Drawing.Point(374, 56);
+            this.clientesDataGridView.Name = "clientesDataGridView";
+            this.clientesDataGridView.Size = new System.Drawing.Size(519, 313);
+            this.clientesDataGridView.TabIndex = 5;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Image = global::sistema_de_facturacion.Properties.Resources.agregar;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAgregar.Location = new System.Drawing.Point(26, 306);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(92, 63);
+            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::sistema_de_facturacion.Properties.Resources.guardar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(142, 306);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(92, 63);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::sistema_de_facturacion.Properties.Resources.error;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(255, 306);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 63);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -168,23 +254,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
-            // 
-            // productosBindingSource
-            // 
-            this.productosBindingSource.DataMember = "productos";
-            this.productosBindingSource.DataSource = this.productosDataSet;
-            // 
-            // productosDataSet
-            // 
-            this.productosDataSet.DataSetName = "ProductosDataSet";
-            this.productosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -213,26 +282,6 @@
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -251,217 +300,69 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
-            // bindingNavigatorSeparator2
+            // clientesBindingNavigatorSaveItem
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // productosBindingNavigatorSaveItem
-            // 
-            this.productosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.productosBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("productosBindingNavigatorSaveItem.Image")));
-            this.productosBindingNavigatorSaveItem.Name = "productosBindingNavigatorSaveItem";
-            this.productosBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.productosBindingNavigatorSaveItem.Text = "Guardar datos";
-            this.productosBindingNavigatorSaveItem.Click += new System.EventHandler(this.productosBindingNavigatorSaveItem_Click);
-            // 
-            // productosDataGridView
-            // 
-            this.productosDataGridView.AllowUserToAddRows = false;
-            this.productosDataGridView.AllowUserToDeleteRows = false;
-            this.productosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.productosDataGridView.AutoGenerateColumns = false;
-            this.productosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.productosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.productosDataGridView.DataSource = this.productosBindingSource;
-            this.productosDataGridView.Location = new System.Drawing.Point(315, 69);
-            this.productosDataGridView.Name = "productosDataGridView";
-            this.productosDataGridView.ReadOnly = true;
-            this.productosDataGridView.Size = new System.Drawing.Size(646, 254);
-            this.productosDataGridView.TabIndex = 1;
-            this.productosDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.productosDataGridView_RowValidating);
+            this.clientesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.clientesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("clientesBindingNavigatorSaveItem.Image")));
+            this.clientesBindingNavigatorSaveItem.Name = "clientesBindingNavigatorSaveItem";
+            this.clientesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.clientesBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.clientesBindingNavigatorSaveItem.Click += new System.EventHandler(this.clientesBindingNavigatorSaveItem_Click_1);
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "producto_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "producto_id";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "documentId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "# DOCUMENTO";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "creado_en";
-            this.dataGridViewTextBoxColumn2.HeaderText = "creado_en";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CREADO";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "codigo";
-            this.dataGridViewTextBoxColumn3.HeaderText = "codigo";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "nombreCompleto";
+            this.dataGridViewTextBoxColumn3.HeaderText = "NOMBRE";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "descripcion";
-            this.dataGridViewTextBoxColumn4.HeaderText = "descripcion";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "precio";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn5.HeaderText = "precio";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "descuento";
-            this.dataGridViewTextBoxColumn6.HeaderText = "descuento";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(75, 349);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(170, 28);
-            this.btnAgregar.TabIndex = 12;
-            this.btnAgregar.Text = "AGREGAR";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(314, 349);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(170, 28);
-            this.btnGuardar.TabIndex = 13;
-            this.btnGuardar.Text = "GUARDAR";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // producto_idTextBox
-            // 
-            this.producto_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "producto_id", true));
-            this.producto_idTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.producto_idTextBox.Location = new System.Drawing.Point(137, 69);
-            this.producto_idTextBox.Name = "producto_idTextBox";
-            this.producto_idTextBox.ReadOnly = true;
-            this.producto_idTextBox.Size = new System.Drawing.Size(141, 26);
-            this.producto_idTextBox.TabIndex = 14;
-            // 
-            // codigoMaskedTextBox
-            // 
-            this.codigoMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "codigo", true));
-            this.codigoMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codigoMaskedTextBox.Location = new System.Drawing.Point(137, 101);
-            this.codigoMaskedTextBox.Mask = ">LL000000";
-            this.codigoMaskedTextBox.Name = "codigoMaskedTextBox";
-            this.codigoMaskedTextBox.Size = new System.Drawing.Size(141, 26);
-            this.codigoMaskedTextBox.TabIndex = 16;
-            this.codigoMaskedTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.codigoMaskedTextBox_Validating);
-            // 
-            // descripcionTextBox
-            // 
-            this.descripcionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "descripcion", true));
-            this.descripcionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descripcionTextBox.Location = new System.Drawing.Point(137, 133);
-            this.descripcionTextBox.Multiline = true;
-            this.descripcionTextBox.Name = "descripcionTextBox";
-            this.descripcionTextBox.Size = new System.Drawing.Size(141, 71);
-            this.descripcionTextBox.TabIndex = 18;
-            // 
-            // precioTextBox
-            // 
-            this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "precio", true));
-            this.precioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioTextBox.Location = new System.Drawing.Point(137, 210);
-            this.precioTextBox.Name = "precioTextBox";
-            this.precioTextBox.Size = new System.Drawing.Size(141, 26);
-            this.precioTextBox.TabIndex = 20;
-            // 
-            // descuentoTextBox
-            // 
-            this.descuentoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "descuento", true));
-            this.descuentoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descuentoTextBox.Location = new System.Drawing.Point(137, 242);
-            this.descuentoTextBox.Name = "descuentoTextBox";
-            this.descuentoTextBox.Size = new System.Drawing.Size(141, 26);
-            this.descuentoTextBox.TabIndex = 22;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.CausesValidation = false;
-            this.btnCancelar.Location = new System.Drawing.Point(568, 354);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 23;
-            this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // productosTableAdapter
-            // 
-            this.productosTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.productosTableAdapter = this.productosTableAdapter;
-            this.tableAdapterManager.UpdateOrder = sistema_de_facturacion.Datasets.ProductosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 424);
+            this.ClientSize = new System.Drawing.Size(905, 403);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(producto_idLabel);
-            this.Controls.Add(this.producto_idTextBox);
-            this.Controls.Add(codigoLabel);
-            this.Controls.Add(this.codigoMaskedTextBox);
-            this.Controls.Add(descripcionLabel);
-            this.Controls.Add(this.descripcionTextBox);
-            this.Controls.Add(precioLabel);
-            this.Controls.Add(this.precioTextBox);
-            this.Controls.Add(descuentoLabel);
-            this.Controls.Add(this.descuentoTextBox);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.productosDataGridView);
-            this.Controls.Add(this.productosBindingNavigator);
+            this.Controls.Add(this.clientesDataGridView);
+            this.Controls.Add(documentIdLabel);
+            this.Controls.Add(this.documentIdTextBox);
+            this.Controls.Add(nombreCompletoLabel);
+            this.Controls.Add(this.nombreCompletoTextBox);
+            this.Controls.Add(this.clientesBindingNavigator);
             this.Name = "FrmClientes";
-            this.Text = "FrmCliente";
+            this.ShowIcon = false;
+            this.Text = "Administracion de clientes";
             this.Load += new System.EventHandler(this.FrmClientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingNavigator)).EndInit();
-            this.productosBindingNavigator.ResumeLayout(false);
-            this.productosBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingNavigator)).EndInit();
+            this.clientesBindingNavigator.ResumeLayout(false);
+            this.clientesBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private Datasets.ProductosDataSet productosDataSet;
-        private System.Windows.Forms.BindingSource productosBindingSource;
-        private Datasets.ProductosDataSetTableAdapters.productosTableAdapter productosTableAdapter;
-        private Datasets.ProductosDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator productosBindingNavigator;
+        #endregion
+
+        private Datasets.ClientesDataSet clientesDataSet;
+        private System.Windows.Forms.BindingSource clientesBindingSource;
+        private Datasets.ClientesDataSetTableAdapters.clientesTableAdapter clientesTableAdapter;
+        private Datasets.ClientesDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingNavigator clientesBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -473,24 +374,15 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton productosBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView productosDataGridView;
+        private System.Windows.Forms.ToolStripButton clientesBindingNavigatorSaveItem;
+        private System.Windows.Forms.TextBox documentIdTextBox;
+        private System.Windows.Forms.TextBox nombreCompletoTextBox;
+        private System.Windows.Forms.DataGridView clientesDataGridView;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox producto_idTextBox;
-        private System.Windows.Forms.MaskedTextBox codigoMaskedTextBox;
-        private System.Windows.Forms.TextBox descripcionTextBox;
-        private System.Windows.Forms.TextBox precioTextBox;
-        private System.Windows.Forms.TextBox descuentoTextBox;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.Button btnCancelar;
     }
-    #endregion Windows Form Designer generated code
-
 }
-

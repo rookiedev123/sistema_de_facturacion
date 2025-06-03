@@ -1,16 +1,13 @@
 ﻿create table clientes(
-	clienteId int identity(1,1),
-	document varchar(50),
+	documentId varchar(50),
 	creado_en datetime DEFAULT GETDATE(),
-	nombres varchar(100) not null,
-	apellidos varchar(100) not null,
-	constraint PK_cliente_id primary key(clienteId),
-	constraint UQ_documentId unique(document)
+	nombreCompleto varchar(500) not null,
+	constraint PK_document_id primary key(documentId),
 );
 go
 create table productos(
 	producto_id int identity(1,1),
-	creado_en datetime DEFAULT GETDATE(),
+	creado_en DATETIME DEFAULT GETDATE(),
 	codigo varchar(15) unique not null,
 	descripcion varchar(200) not null,
 	precio decimal(12,3) not null,
@@ -22,10 +19,10 @@ go
 create table facturas(
 	factura_id int identity(1,1),
 	creado_en datetime DEFAULT GETDATE(),
-	clienteId int not null,
+	documentId varchar(50) not null,
 	total decimal(15,3) not null,
 	constraint PK_factura_id primary key(factura_id),
-	constraint FK_cliente foreign key (clienteId) references clientes(clienteId) 
+	constraint FK_document foreign key (documentId) references clientes(documentId) 
 );
 go
 create table facturas_productos(

@@ -18,6 +18,7 @@ namespace sistema_de_facturacion.Services.Facturacion
         private string cliente;
         private string tipoPago;
         private decimal total;
+        private decimal totalImpuesto;
         private decimal totalDesc;
         private decimal totalNeto;
 
@@ -33,8 +34,7 @@ namespace sistema_de_facturacion.Services.Facturacion
         public decimal Total { get => total; }
         public decimal TotalDesc { get => totalDesc; }
         public decimal TotalNeto { get => totalNeto;}
-
-   
+        public decimal TotalImpuesto { get => totalImpuesto; }
 
         public void AgregarArticulo(Articulo articulo) {
 
@@ -87,8 +87,10 @@ namespace sistema_de_facturacion.Services.Facturacion
             total = 0;
             totalNeto = 0;
             totalDesc = 0;
+            totalImpuesto = 0;
             foreach (Articulo item in articulos.ToList()){
                 total += item.Total;
+                totalImpuesto += item.ImpuestosAplicados;
                 totalNeto += item.TotalNeto;
                 totalDesc += item.TotalDesc;
             }
