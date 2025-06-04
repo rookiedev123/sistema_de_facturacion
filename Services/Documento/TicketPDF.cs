@@ -17,38 +17,35 @@ namespace sistema_de_facturacion.Services.Documento
             PdfWriter.GetInstance(doc, new FileStream(rutaArchivo, FileMode.Create));
             doc.Open();
 
-            Font normal = FontFactory.GetFont(FontFactory.HELVETICA, 9);
-            Font negrita = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+            Font normal = FontFactory.GetFont(FontFactory.HELVETICA, 7);
+            Font negrita = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
 
-            doc.Add(new Paragraph("TIENDA XYZ", negrita));
-            doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy"), normal));
-            doc.Add(new Paragraph("Hora: " + DateTime.Now.ToString("HH:mm:ss"), normal));
-            doc.Add(new Paragraph("----------------------------------"));
+            doc.Add(new Paragraph(negocioInfo.Nombre, negrita));
+            doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "\n", normal));
+            doc.Add(new Paragraph("====================="));
 
-            PdfPTable tabla = new PdfPTable(3);
+            PdfPTable tabla = new PdfPTable(2);
             tabla.WidthPercentage = 100;
-            tabla.SetWidths(new float[] { 3f, 1f, 1f });
+            tabla.SetWidths(new float[] { 3f, 1f });
+            tabla.DefaultCell.Border = Rectangle.NO_BORDER;
 
-            tabla.AddCell("Producto");
-            tabla.AddCell("Cant.");
-            tabla.AddCell("Total");
 
-            tabla.AddCell("Soda");
-            tabla.AddCell("2");
-            tabla.AddCell("$4.00");
+            foreach (Articulo item in factura.articulos) {
 
-            tabla.AddCell("Pan");
-            tabla.AddCell("1");
-            tabla.AddCell("$1.50");
+                tabla.AddCell(new Paragraph(item.Descripcion, normal));
+                tabla.AddCell(new Paragraph(item.TotalNeto.ToString("C2"), normal));
+                tabla.AddCell(new Paragraph($"@x{item.Cantidad}", normal));
+                tabla.AddCell(new Paragraph("", normal));
+            }
 
-            tabla.AddCell("Café");
-            tabla.AddCell("1");
-            tabla.AddCell("$2.00");
+
+            
+
 
             doc.Add(tabla);
 
-            doc.Add(new Paragraph("----------------------------------"));
-            doc.Add(new Paragraph("TOTAL: $7.50", negrita));
+            doc.Add(new Paragraph("====================="));
+            doc.Add(new Paragraph($"Total: ${factura.TotalNeto}", negrita));
             doc.Add(new Paragraph("¡Gracias por su compra!", normal));
 
             doc.Close();

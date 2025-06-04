@@ -29,18 +29,11 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFactura));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFactura));
             this.articulos_dataGridView = new System.Windows.Forms.DataGridView();
-            this.header_codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.header_cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.header_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.header_precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.header_total_descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.header_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.header_total_pagar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mktxtCodigoCliente = new System.Windows.Forms.MaskedTextBox();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.cboTipoPago = new System.Windows.Forms.ComboBox();
@@ -63,6 +56,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDevolver = new System.Windows.Forms.TextBox();
+            this.chkFacturaFiscal = new System.Windows.Forms.CheckBox();
+            this.btnEliminarArticulo = new System.Windows.Forms.Button();
+            this.header_codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header_cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header_precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header_total_descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header_total_pagar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header_impuesto_aplicados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.articulos_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,15 +77,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.articulos_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.articulos_dataGridView.CausesValidation = false;
             this.articulos_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.articulos_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.header_codigo,
             this.header_cantidad,
-            this.header_description,
             this.header_precio,
+            this.header_description,
             this.header_total_descuento,
             this.header_total,
-            this.header_total_pagar});
+            this.header_total_pagar,
+            this.header_impuesto_aplicados});
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,69 +99,11 @@
             this.articulos_dataGridView.DefaultCellStyle = dataGridViewCellStyle12;
             this.articulos_dataGridView.Location = new System.Drawing.Point(34, 152);
             this.articulos_dataGridView.Name = "articulos_dataGridView";
+            this.articulos_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.articulos_dataGridView.Size = new System.Drawing.Size(1097, 239);
             this.articulos_dataGridView.TabIndex = 4;
             this.articulos_dataGridView.TabStop = false;
-            // 
-            // header_codigo
-            // 
-            this.header_codigo.DataPropertyName = "Codigo";
-            this.header_codigo.FillWeight = 23.26558F;
-            this.header_codigo.HeaderText = "CODIGO";
-            this.header_codigo.Name = "header_codigo";
-            this.header_codigo.ReadOnly = true;
-            // 
-            // header_cantidad
-            // 
-            this.header_cantidad.DataPropertyName = "Cantidad";
-            this.header_cantidad.FillWeight = 22.91661F;
-            this.header_cantidad.HeaderText = "CANTIDAD";
-            this.header_cantidad.Name = "header_cantidad";
-            this.header_cantidad.ReadOnly = true;
-            // 
-            // header_description
-            // 
-            this.header_description.DataPropertyName = "Descripcion";
-            this.header_description.FillWeight = 76.74895F;
-            this.header_description.HeaderText = "DESCRIPCION";
-            this.header_description.Name = "header_description";
-            // 
-            // header_precio
-            // 
-            this.header_precio.DataPropertyName = "Precio";
-            dataGridViewCellStyle9.Format = "C2";
-            this.header_precio.DefaultCellStyle = dataGridViewCellStyle9;
-            this.header_precio.FillWeight = 23.26558F;
-            this.header_precio.HeaderText = "PRECIO";
-            this.header_precio.Name = "header_precio";
-            this.header_precio.ReadOnly = true;
-            // 
-            // header_total_descuento
-            // 
-            this.header_total_descuento.DataPropertyName = "TotalDesc";
-            dataGridViewCellStyle10.Format = "C2";
-            this.header_total_descuento.DefaultCellStyle = dataGridViewCellStyle10;
-            this.header_total_descuento.FillWeight = 23.26558F;
-            this.header_total_descuento.HeaderText = "DESCUENTO";
-            this.header_total_descuento.Name = "header_total_descuento";
-            this.header_total_descuento.ReadOnly = true;
-            // 
-            // header_total
-            // 
-            this.header_total.DataPropertyName = "Total";
-            this.header_total.FillWeight = 23.26558F;
-            this.header_total.HeaderText = "TOTAL";
-            this.header_total.Name = "header_total";
-            // 
-            // header_total_pagar
-            // 
-            this.header_total_pagar.DataPropertyName = "TotalNeto";
-            dataGridViewCellStyle11.Format = "C2";
-            this.header_total_pagar.DefaultCellStyle = dataGridViewCellStyle11;
-            this.header_total_pagar.FillWeight = 23.26558F;
-            this.header_total_pagar.HeaderText = "TOTAL PAGAR";
-            this.header_total_pagar.Name = "header_total_pagar";
-            this.header_total_pagar.ReadOnly = true;
+            this.articulos_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articulos_dataGridView_CellClick);
             // 
             // mktxtCodigoCliente
             // 
@@ -187,7 +134,7 @@
             "EFECTIVO",
             "TARJETA",
             "PLAZO"});
-            this.cboTipoPago.Location = new System.Drawing.Point(930, 103);
+            this.cboTipoPago.Location = new System.Drawing.Point(930, 42);
             this.cboTipoPago.Name = "cboTipoPago";
             this.cboTipoPago.Size = new System.Drawing.Size(201, 28);
             this.cboTipoPago.TabIndex = 3;
@@ -219,7 +166,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(809, 108);
+            this.label3.Location = new System.Drawing.Point(809, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 20);
             this.label3.TabIndex = 10;
@@ -256,7 +203,7 @@
             this.txtTotal.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtTotal.Location = new System.Drawing.Point(930, 447);
+            this.txtTotal.Location = new System.Drawing.Point(930, 444);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(201, 26);
@@ -269,7 +216,7 @@
             this.txtDescTotal.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtDescTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescTotal.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtDescTotal.Location = new System.Drawing.Point(930, 479);
+            this.txtDescTotal.Location = new System.Drawing.Point(930, 476);
             this.txtDescTotal.Name = "txtDescTotal";
             this.txtDescTotal.ReadOnly = true;
             this.txtDescTotal.Size = new System.Drawing.Size(201, 26);
@@ -282,7 +229,7 @@
             this.txtNetoTotal.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtNetoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNetoTotal.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtNetoTotal.Location = new System.Drawing.Point(930, 511);
+            this.txtNetoTotal.Location = new System.Drawing.Point(930, 508);
             this.txtNetoTotal.Name = "txtNetoTotal";
             this.txtNetoTotal.ReadOnly = true;
             this.txtNetoTotal.Size = new System.Drawing.Size(201, 26);
@@ -294,7 +241,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(873, 450);
+            this.label5.Location = new System.Drawing.Point(873, 447);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 20);
             this.label5.TabIndex = 16;
@@ -305,7 +252,7 @@
             this.lblDescTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDescTotal.AutoSize = true;
             this.lblDescTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescTotal.Location = new System.Drawing.Point(784, 482);
+            this.lblDescTotal.Location = new System.Drawing.Point(784, 479);
             this.lblDescTotal.Name = "lblDescTotal";
             this.lblDescTotal.Size = new System.Drawing.Size(138, 20);
             this.lblDescTotal.TabIndex = 17;
@@ -316,7 +263,7 @@
             this.lblNetoTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNetoTotal.AutoSize = true;
             this.lblNetoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNetoTotal.Location = new System.Drawing.Point(832, 514);
+            this.lblNetoTotal.Location = new System.Drawing.Point(832, 511);
             this.lblNetoTotal.Name = "lblNetoTotal";
             this.lblNetoTotal.Size = new System.Drawing.Size(90, 20);
             this.lblNetoTotal.TabIndex = 18;
@@ -327,7 +274,7 @@
             this.lblCodigoArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCodigoArticulos.AutoSize = true;
             this.lblCodigoArticulos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoArticulos.Location = new System.Drawing.Point(848, 400);
+            this.lblCodigoArticulos.Location = new System.Drawing.Point(848, 406);
             this.lblCodigoArticulos.Name = "lblCodigoArticulos";
             this.lblCodigoArticulos.Size = new System.Drawing.Size(74, 20);
             this.lblCodigoArticulos.TabIndex = 20;
@@ -337,10 +284,10 @@
             // 
             this.txtCodigoProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoProducto.Location = new System.Drawing.Point(930, 397);
+            this.txtCodigoProducto.Location = new System.Drawing.Point(930, 403);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
             this.txtCodigoProducto.Size = new System.Drawing.Size(201, 26);
-            this.txtCodigoProducto.TabIndex = 4;
+            this.txtCodigoProducto.TabIndex = 5;
             this.txtCodigoProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoProducto_KeyDown);
             // 
             // btnCancelar
@@ -382,7 +329,7 @@
             this.txtPago.Location = new System.Drawing.Point(166, 433);
             this.txtPago.Name = "txtPago";
             this.txtPago.Size = new System.Drawing.Size(197, 35);
-            this.txtPago.TabIndex = 5;
+            this.txtPago.TabIndex = 6;
             this.txtPago.TextChanged += new System.EventHandler(this.txtPago_TextChanged);
             this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
             this.txtPago.Validating += new System.ComponentModel.CancelEventHandler(this.txtPago_Validating);
@@ -419,11 +366,107 @@
             this.txtDevolver.Size = new System.Drawing.Size(197, 35);
             this.txtDevolver.TabIndex = 22;
             // 
-            // FacturaForm
+            // chkFacturaFiscal
+            // 
+            this.chkFacturaFiscal.AutoSize = true;
+            this.chkFacturaFiscal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFacturaFiscal.Location = new System.Drawing.Point(975, 76);
+            this.chkFacturaFiscal.Name = "chkFacturaFiscal";
+            this.chkFacturaFiscal.Size = new System.Drawing.Size(137, 24);
+            this.chkFacturaFiscal.TabIndex = 4;
+            this.chkFacturaFiscal.Text = "Factura fiscal";
+            this.chkFacturaFiscal.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.chkFacturaFiscal.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminarArticulo
+            // 
+            this.btnEliminarArticulo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnEliminarArticulo.CausesValidation = false;
+            this.btnEliminarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarArticulo.Image")));
+            this.btnEliminarArticulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(1137, 152);
+            this.btnEliminarArticulo.Name = "btnEliminarArticulo";
+            this.btnEliminarArticulo.Size = new System.Drawing.Size(42, 36);
+            this.btnEliminarArticulo.TabIndex = 24;
+            this.btnEliminarArticulo.TabStop = false;
+            this.btnEliminarArticulo.UseVisualStyleBackColor = true;
+            this.btnEliminarArticulo.Click += new System.EventHandler(this.btnEliminarArticulo_Click);
+            // 
+            // header_codigo
+            // 
+            this.header_codigo.DataPropertyName = "Codigo";
+            this.header_codigo.FillWeight = 18F;
+            this.header_codigo.HeaderText = "CODIGO";
+            this.header_codigo.Name = "header_codigo";
+            this.header_codigo.ReadOnly = true;
+            // 
+            // header_cantidad
+            // 
+            this.header_cantidad.DataPropertyName = "Cantidad";
+            this.header_cantidad.FillWeight = 15F;
+            this.header_cantidad.HeaderText = "CANTIDAD";
+            this.header_cantidad.Name = "header_cantidad";
+            this.header_cantidad.ReadOnly = true;
+            // 
+            // header_precio
+            // 
+            this.header_precio.DataPropertyName = "Precio";
+            dataGridViewCellStyle9.Format = "C2";
+            this.header_precio.DefaultCellStyle = dataGridViewCellStyle9;
+            this.header_precio.FillWeight = 18F;
+            this.header_precio.HeaderText = "PRECIO";
+            this.header_precio.Name = "header_precio";
+            this.header_precio.ReadOnly = true;
+            // 
+            // header_description
+            // 
+            this.header_description.DataPropertyName = "Descripcion";
+            this.header_description.FillWeight = 75F;
+            this.header_description.HeaderText = "DESCRIPCION";
+            this.header_description.Name = "header_description";
+            // 
+            // header_total_descuento
+            // 
+            this.header_total_descuento.DataPropertyName = "TotalDesc";
+            dataGridViewCellStyle10.Format = "C2";
+            this.header_total_descuento.DefaultCellStyle = dataGridViewCellStyle10;
+            this.header_total_descuento.FillWeight = 18F;
+            this.header_total_descuento.HeaderText = "DESCUENTO";
+            this.header_total_descuento.Name = "header_total_descuento";
+            this.header_total_descuento.ReadOnly = true;
+            // 
+            // header_total
+            // 
+            this.header_total.DataPropertyName = "Total";
+            this.header_total.FillWeight = 18F;
+            this.header_total.HeaderText = "TOTAL";
+            this.header_total.Name = "header_total";
+            // 
+            // header_total_pagar
+            // 
+            this.header_total_pagar.DataPropertyName = "TotalNeto";
+            dataGridViewCellStyle11.Format = "C2";
+            this.header_total_pagar.DefaultCellStyle = dataGridViewCellStyle11;
+            this.header_total_pagar.FillWeight = 20F;
+            this.header_total_pagar.HeaderText = "TOTAL PAGAR";
+            this.header_total_pagar.Name = "header_total_pagar";
+            this.header_total_pagar.ReadOnly = true;
+            // 
+            // header_impuesto_aplicados
+            // 
+            this.header_impuesto_aplicados.DataPropertyName = "impuestosAplicados";
+            this.header_impuesto_aplicados.HeaderText = "header_impuesto_aplicados";
+            this.header_impuesto_aplicados.Name = "header_impuesto_aplicados";
+            this.header_impuesto_aplicados.Visible = false;
+            // 
+            // FrmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 568);
+            this.ClientSize = new System.Drawing.Size(1185, 568);
+            this.Controls.Add(this.btnEliminarArticulo);
+            this.Controls.Add(this.chkFacturaFiscal);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtDevolver);
             this.Controls.Add(this.label6);
@@ -448,7 +491,7 @@
             this.Controls.Add(this.mktxtCodigoCliente);
             this.Controls.Add(this.articulos_dataGridView);
             this.KeyPreview = true;
-            this.Name = "FacturaForm";
+            this.Name = "FrmFactura";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FacturaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.articulos_dataGridView)).EndInit();
@@ -458,8 +501,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView articulos_dataGridView;
         private System.Windows.Forms.MaskedTextBox mktxtCodigoCliente;
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.ComboBox cboTipoPago;
@@ -478,16 +519,20 @@
         private System.Windows.Forms.TextBox txtCodigoProducto;
         private System.Windows.Forms.Button btnFacturar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn header_codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn header_cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn header_description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn header_precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn header_total_descuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn header_total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn header_total_pagar;
         private System.Windows.Forms.TextBox txtPago;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDevolver;
+        private System.Windows.Forms.CheckBox chkFacturaFiscal;
+        private System.Windows.Forms.DataGridView articulos_dataGridView;
+        private System.Windows.Forms.Button btnEliminarArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn header_codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn header_cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn header_precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn header_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn header_total_descuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn header_total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn header_total_pagar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn header_impuesto_aplicados;
     }
 }

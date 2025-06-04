@@ -5,11 +5,36 @@ using System.Windows.Forms;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.Drawing.Imaging;
+using System.Xml.Linq;
 
 namespace sistema_de_facturacion.Services.Documento
 {
-    internal class FiscalPDF : IFacturaGenerator
+    internal class FiscalPDF : PdfPageEventHelper, IFacturaGenerator
     {
+
+
+        public class EncabezadoConstructor : PdfPageEventHelper
+        {
+            public PdfPTable Encabezado { get; set; }
+
+            public override void OnEndPage(PdfWriter writer, Document document)
+            {
+                if (Encabezado != null)
+                {
+                    // Ajustar ancho de la tabla al tamaño de página
+                    Encabezado.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+
+                    // Posicionar tabla (x, y)
+                    float x = document.LeftMargin;
+                    float y = document.PageSize.Height - 25;
+
+                    // Dibujar tabla en la página
+                    Encabezado.WriteSelectedRows(0, -1, x, y, writer.DirectContent);
+                }
+
+
+            }
+        }
 
         public void GenerarFactura(Factura factura)
         {
@@ -18,8 +43,13 @@ namespace sistema_de_facturacion.Services.Documento
             NegocioInfo negocioInfo = new NegocioInfo();
 
 
-            Document doc = new Document(PageSize.LETTER, 40f, 40f, 60f, 40f);
-            PdfWriter.GetInstance(doc, new FileStream(rutaArchivo, FileMode.Create));
+            Document doc = new Document(PageSize.LETTER, 40f, 40f, 120f, 40f);
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(rutaArchivo, FileMode.Create));
+
+            EncabezadoConstructor evento = new EncabezadoConstructor();
+            evento.Encabezado = EncabezadoTabla(factura,negocioInfo);
+            writer.PageEvent = evento;
+
 
             doc.Open();
 
@@ -27,67 +57,35 @@ namespace sistema_de_facturacion.Services.Documento
             Font normal = FontFactory.GetFont(FontFactory.HELVETICA, 10);
             Font negrita = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
 
-            PdfPTable encabezado = new PdfPTable(2);
-            encabezado.WidthPercentage = 100;
-            encabezado.SetWidths(new float[] { 3f, 1f });
 
-            PdfPCell celdaDatos = new PdfPCell();
-            celdaDatos.Border = Rectangle.NO_BORDER;
+            PdfPTable tblArticulos = new PdfPTable(6);
+            tblArticulos.HeaderRows = 1;
 
-            Paragraph datos = new Paragraph();
-            datos.Add(new Chunk("FACTURA\n", negrita));
-            datos.Add(new Chunk("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy") + "\n", normal));
-            datos.Add(new Chunk("Cliente: Juan Pérez\n", normal));
-            datos.Add(new Chunk("Dirección: Calle Falsa 123\n", normal));
+            tblArticulos.WidthPercentage = 100;
+            tblArticulos.SetWidths(new float[] { 3f, 1f, 1.5f, 1.5f, 1.3f,1f });
 
-            celdaDatos.AddElement(datos);
-            encabezado.AddCell(celdaDatos);
+            tblArticulos.AddCell(new PdfPCell(new Phrase("ARTICULO", FontTabla)));
+            tblArticulos.AddCell(new PdfPCell(new Phrase("CANTIDAD", FontTabla)));
+            tblArticulos.AddCell(new PdfPCell(new Phrase("PRECIO UNITARIO", FontTabla)));
+            tblArticulos.AddCell(new PdfPCell(new Phrase("DESCUENTO", FontTabla)));
+            tblArticulos.AddCell(new PdfPCell(new Phrase("IMPUESTOS", FontTabla)));
+            tblArticulos.AddCell(new PdfPCell(new Phrase("TOTAL", FontTabla)));
 
-            // 1. Celda: Imagen (desde recurso)
-            using (MemoryStream ms = new MemoryStream())
-            {
-                Properties.Resources.logoBN.Save(ms, ImageFormat.Jpeg);
-                iTextSharp.text.Image logoPdf = iTextSharp.text.Image.GetInstance(ms.ToArray());
-                logoPdf.ScaleToFit(80f, 80f);
-
-                PdfPCell celdaImagen = new PdfPCell(logoPdf, false);
-                celdaImagen.Border = Rectangle.NO_BORDER;
-                celdaImagen.HorizontalAlignment = Element.ALIGN_RIGHT ;
-                celdaImagen.VerticalAlignment = Element.ALIGN_MIDDLE;
-
-                encabezado.AddCell(celdaImagen);
-            }
-
-            doc.Add(encabezado);
-
-            doc.Add(new Paragraph("\n"));
-
-            PdfPTable tabla = new PdfPTable(6);
-            tabla.HeaderRows = 1;
-
-            tabla.WidthPercentage = 100;
-            tabla.SetWidths(new float[] { 3f, 1f, 1.5f, 1.5f, 1.3f,1f });
-
-            tabla.AddCell(new PdfPCell(new Phrase("ARTICULO", FontTabla)));
-            tabla.AddCell(new PdfPCell(new Phrase("CANTIDAD", FontTabla)));
-            tabla.AddCell(new PdfPCell(new Phrase("PRECIO UNITARIO", FontTabla)));
-            tabla.AddCell(new PdfPCell(new Phrase("DESCUENTO", FontTabla)));
-            tabla.AddCell(new PdfPCell(new Phrase("IMPUESTOS", FontTabla)));
-            tabla.AddCell(new PdfPCell(new Phrase("TOTAL", FontTabla)));
 
 
             foreach (Articulo item in factura.articulos)
             {
-                tabla.AddCell(new PdfPCell(new Phrase(item.Descripcion.ToString(), FontTabla)));
-                tabla.AddCell(new PdfPCell(new Phrase(item.Cantidad.ToString(), FontTabla)));
-                tabla.AddCell(new PdfPCell(new Phrase(item.Precio.ToString("C2"), FontTabla)));
-                tabla.AddCell(new PdfPCell(new Phrase(item.TotalDesc.ToString("C2"), FontTabla)));
-                tabla.AddCell(new PdfPCell(new Phrase(item.ImpuestosAplicados.ToString("C2"), FontTabla)));
-                tabla.AddCell(new PdfPCell(new Phrase(item.TotalNeto.ToString("C2"), FontTabla)));
+                tblArticulos.AddCell(new PdfPCell(new Phrase(item.Descripcion.ToString(), FontTabla)));
+                tblArticulos.AddCell(new PdfPCell(new Phrase(item.Cantidad.ToString(), FontTabla)));
+                tblArticulos.AddCell(new PdfPCell(new Phrase(item.Precio.ToString("C2"), FontTabla)));
+                tblArticulos.AddCell(new PdfPCell(new Phrase(item.TotalDesc.ToString("C2"), FontTabla)));
+                tblArticulos.AddCell(new PdfPCell(new Phrase(item.ImpuestosAplicados.ToString("C2"), FontTabla)));
+                tblArticulos.AddCell(new PdfPCell(new Phrase(item.TotalNeto.ToString("C2"), FontTabla)));
 
             }
 
-            doc.Add(tabla);
+
+            doc.Add(tblArticulos);
 
 
             PdfPTable pie = new PdfPTable(2);
@@ -155,6 +153,48 @@ namespace sistema_de_facturacion.Services.Documento
 
             doc.Close();
         }
+
+        public PdfPTable EncabezadoTabla(Factura factura,NegocioInfo negocio) {
+
+            PdfPTable tblEncabezado = new PdfPTable(2);
+            tblEncabezado.WidthPercentage = 100;
+            tblEncabezado.SetWidths(new float[] { 3f, 1f });
+
+            Font normal = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+            Font negrita = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+
+            PdfPCell cellEncabezadoDatos = new PdfPCell();
+            cellEncabezadoDatos.Border = Rectangle.NO_BORDER;
+
+            Paragraph prgEncabezadoDatos = new Paragraph();
+            prgEncabezadoDatos.Add(new Chunk($"# {factura.FacturaId}\n", negrita));
+            prgEncabezadoDatos.Add(new Chunk("Fecha: " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "\n", normal));
+            prgEncabezadoDatos.Add(new Chunk($"Cliente: {factura.Cliente}\n", normal));
+            prgEncabezadoDatos.Add(new Chunk($"Dirección: {negocio.Direccion}\n", normal));
+
+            cellEncabezadoDatos.AddElement(prgEncabezadoDatos);
+            tblEncabezado.AddCell(cellEncabezadoDatos);
+
+            // 1. Celda: Imagen (desde recurso)
+            using (MemoryStream ms = new MemoryStream())
+            {
+                Properties.Resources.logoBN.Save(ms, ImageFormat.Jpeg);
+                iTextSharp.text.Image logoPdf = iTextSharp.text.Image.GetInstance(ms.ToArray());
+                logoPdf.ScaleToFit(80f, 80f);
+
+                PdfPCell celdaImagen = new PdfPCell(logoPdf, false);
+                celdaImagen.Border = Rectangle.NO_BORDER;
+                celdaImagen.HorizontalAlignment = Element.ALIGN_RIGHT;
+                celdaImagen.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+                tblEncabezado.AddCell(celdaImagen);
+            }
+
+
+            return tblEncabezado;
+
+        }
+
 
         public void MostrarArchivo() {
 

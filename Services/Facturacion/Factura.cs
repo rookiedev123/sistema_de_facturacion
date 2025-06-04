@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sistema_de_facturacion.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -53,11 +54,11 @@ namespace sistema_de_facturacion.Services.Facturacion
 
         }
 
-        public void RemoverArticulo(Articulo articulo)
+        public void RemoverArticulo(string articulo)
         {
-            /*
 
-            Predicate<Articulo> predicate = ((a) => a.Codigo.Equals(articulo.Codigo));
+
+            Predicate<Articulo> predicate = ((a) => a.Codigo.Equals(articulo));
 
             int index = this.articulos.ToList().FindIndex(predicate);
 
@@ -65,20 +66,8 @@ namespace sistema_de_facturacion.Services.Facturacion
                 return;
             }
 
-            if (this.articulos[index].Cantidad > 0) {
-                this.articulos[index].Cantidad -= 1;
-            }
+            this.articulos.RemoveAt(index);
 
-            if (this.articulos[index].Cantidad <= 0) {
-                this.articulos.RemoveAt(index);
-                return;
-            }
-
-            this.articulos[index].CalcTotalDescuento();
-            this.articulos[index].CalcTotalPagar(this.impuestos);
-
-            return;
-            */
 
         }
 

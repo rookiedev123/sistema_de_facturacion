@@ -26,7 +26,9 @@ namespace sistema_de_facturacion.FormsViews
                 new Impuesto("IVA",0.13m)
             };
             this.factura = new Factura(impuestos);
+
             articulos_dataGridView.DataSource = factura.articulos;
+
             cboTipoDocumento.Select();
 
         }
@@ -72,6 +74,22 @@ namespace sistema_de_facturacion.FormsViews
             }
         }
 
+
+        private void articulos_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dt = (DataGridView)sender;
+
+            if (e.RowIndex >= 0 && dt.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                string codigo = dt.Rows[e.RowIndex].Cells["header_codigo"].Value?.ToString();
+                var confirmar = MessageBox.Show("Confirmar","",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmar == DialogResult.Yes)
+                {
+                    factura.RemoverArticulo(codigo);
+                }
+            }
+        }
 
         private void txtCodigoProducto_KeyDown(object sender, KeyEventArgs e)
         {
@@ -125,11 +143,6 @@ namespace sistema_de_facturacion.FormsViews
            
 
         }
-        private void btn_facturar_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         //Eventos de cboTipoDocumento
         private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
@@ -282,7 +295,14 @@ namespace sistema_de_facturacion.FormsViews
         }
         private void txtPago_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if(decimal.TryParse(txtPago.Text,out decimal pago)){
+
+            if (this.ActiveControl.Name.ToString() == "txtCodigoProducto")
+            {
+                e.Cancel = false;
+                return;
+            }
+
+            if (!decimal.TryParse(txtPago.Text,out decimal pago)){
                 MessageBox.Show("Debe ingresar un número valido", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Cancel = true;
             }
@@ -318,20 +338,62 @@ namespace sistema_de_facturacion.FormsViews
             txtDescTotal.Text = String.Empty;
             txtNetoTotal.Text = String.Empty;
             txtDevolver.Text = String.Empty;
+            chkFacturaFiscal.Checked = false;
 
-
+            factura.LimpiarArticulos();
             factura = null;
             factura = new Factura(impuestos);
             articulos_dataGridView.DataSource = factura.articulos;
+
+            cboTipoDocumento.Select();
         }
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            IFacturaGenerator  facturaArchivo = new FiscalPDF();
+            IFacturaGenerator  facturaArchivo;
 
+            if (factura.articulos.Count == 0) {
+                MessageBox.Show("Nada que facturar", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            if (chkFacturaFiscal.Checked == true)
+            {
+                facturaArchivo = new FiscalPDF();
+            }
+            else
+            {
+                facturaArchivo = new TicketPDF();
+            }
+
+            
             facturaArchivo.GenerarFactura(factura);
             facturaArchivo.MostrarArchivo();
 
+        }
+
+        private void btnEliminarArticulo_Click(object sender, EventArgs e)
+        {
+            if (articulos_dataGridView.CurrentRow != null)
+            {
+                DataGridViewRow fila = articulos_dataGridView.CurrentRow;
+
+                string codigo = fila.Cells["header_codigo"].Value?.ToString();
+
+                DialogResult confirmar = MessageBox.Show($"Desea eliminar el articulo {codigo}", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmar == DialogResult.Yes)
+                {
+                    factura.RemoverArticulo(codigo);
+                    factura.CalcularFacturaTotales();
+                    txtTotal.Text = factura.Total.ToString();
+                    txtDescTotal.Text = factura.TotalDesc.ToString();
+                    txtNetoTotal.Text = factura.TotalNeto.ToString();
+                }
+
+
+            }
         }
     }
 }
