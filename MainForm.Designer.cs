@@ -24,10 +24,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btn_facturar = new System.Windows.Forms.Button();
-            this.btnClientes = new System.Windows.Forms.Button();
+            this.btnProductos_ = new System.Windows.Forms.Button();
             this.btnReportesDeVentas = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnProductos = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
             this.btnControlPagos = new System.Windows.Forms.Button();
             this.lblReportes = new System.Windows.Forms.Label();
             this.lblFacturación = new System.Windows.Forms.Label();
@@ -47,16 +47,16 @@
             this.btn_facturar.UseVisualStyleBackColor = true;
             this.btn_facturar.Click += new System.EventHandler(this.btn_facturar_Click);
             // 
-            // btnClientes
+            // btnProductos_
             // 
-            this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientes.Location = new System.Drawing.Point(54, 216);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(244, 45);
-            this.btnClientes.TabIndex = 2;
-            this.btnClientes.Text = "Clientes";
-            this.btnClientes.UseVisualStyleBackColor = true;
-            this.btnClientes.Click += new System.EventHandler(this.button1_Click);
+            this.btnProductos_.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductos_.Location = new System.Drawing.Point(54, 216);
+            this.btnProductos_.Name = "btnProductos_";
+            this.btnProductos_.Size = new System.Drawing.Size(244, 45);
+            this.btnProductos_.TabIndex = 2;
+            this.btnProductos_.Text = "Productos";
+            this.btnProductos_.UseVisualStyleBackColor = true;
+            this.btnProductos_.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnReportesDeVentas
             // 
@@ -80,15 +80,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnProductos
+            // btnClientes
             // 
-            this.btnProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductos.Location = new System.Drawing.Point(54, 295);
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(244, 45);
-            this.btnProductos.TabIndex = 3;
-            this.btnProductos.Text = "Productos";
-            this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.Location = new System.Drawing.Point(54, 295);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(244, 45);
+            this.btnClientes.TabIndex = 3;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.UseVisualStyleBackColor = true;
             // 
             // btnControlPagos
             // 
@@ -142,10 +142,10 @@
             this.Controls.Add(this.lblFacturación);
             this.Controls.Add(this.lblReportes);
             this.Controls.Add(this.btnControlPagos);
-            this.Controls.Add(this.btnProductos);
+            this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnReportesDeVentas);
-            this.Controls.Add(this.btnClientes);
+            this.Controls.Add(this.btnProductos_);
             this.Controls.Add(this.btn_facturar);
             this.Name = "HomeForm";
             this.Text = ".:MENU:.";
@@ -157,10 +157,10 @@
 
         private System.Windows.Forms.Button btn_facturar;
         private System.Windows.Forms.BindingSource articuloBindingSource;
-        private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.Button btnProductos_;
         private System.Windows.Forms.Button btnReportesDeVentas;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnProductos;
+        private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnControlPagos;
         private System.Windows.Forms.Label lblReportes;
         private System.Windows.Forms.Label lblFacturación;

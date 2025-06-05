@@ -34,25 +34,50 @@ namespace sistema_de_facturacion.FormsViews
         {
             int clienteId = Convert.ToInt32(cbxBuscadorClientes.SelectedValue);
             DateTime fechaDesde = dtpDesdeR.Value.Date;
-            DateTime fechaHasta = dtpHastaR.Value.Date.AddDays(1).AddSeconds(-1); // hasta fin del día
+            DateTime fechaHasta = dtpHastaR.Value.Date.AddDays(1).AddSeconds(-1);
 
-            // Obtener la cadena de conexión desde SqlDataConn
             var conexionSql = new sistema_de_facturacion.Models.Connections.SqlDataConn();
             string cadenaConexion = conexionSql.getConnectionString();
 
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
-                SqlCommand cmd = new SqlCommand("ReporteVentasPorCliente", conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@clienteId", clienteId);
-                cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
-                cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
+                try
+                {
+                    string query = @"
+                SELECT 
+                        f.factura_id as Factura,
+                        c.document as Documento,
+                        c.nombres as Nombres,
+                        c.apellidos as Apellidos,
+                        p.codigo as 'Codigo Producto',
+                        p.descripcion as Descripción,
+                        fp.cantidad as Cantidad,
+                        fp.total_descuento as Descuento,
+                        fp.total_pagar as Total
+		                FROM facturas f
+		                INNER JOIN clientes c ON f.clienteId = c.clienteId
+		                INNER JOIN facturas_productos fp ON f.factura_id = fp.factura_id
+		                INNER JOIN productos p ON fp.producto_id = p.producto_id
+		                WHERE f.clienteId = @clienteId
+		                AND f.creado_en BETWEEN @fechaDesde AND DATEADD(SECOND, -1, DATEADD(DAY, 1, @fechaHasta))";
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@clienteId", clienteId);
+                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
 
-                dtgReporteVentas.DataSource = dt;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dtgReporteVentas.DataSource = dt;
+                }
+                catch (Exception ex) 
+                
+                {
+                    MessageBox.Show("Ingresar datos correctos","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
         }
 
