@@ -84,9 +84,10 @@
             // 
             producto_idLabel.AutoSize = true;
             producto_idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            producto_idLabel.Location = new System.Drawing.Point(38, 72);
+            producto_idLabel.Location = new System.Drawing.Point(51, 89);
+            producto_idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             producto_idLabel.Name = "producto_idLabel";
-            producto_idLabel.Size = new System.Drawing.Size(92, 20);
+            producto_idLabel.Size = new System.Drawing.Size(114, 25);
             producto_idLabel.TabIndex = 13;
             producto_idLabel.Text = "producto id:";
             // 
@@ -94,9 +95,10 @@
             // 
             codigoLabel.AutoSize = true;
             codigoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            codigoLabel.Location = new System.Drawing.Point(71, 104);
+            codigoLabel.Location = new System.Drawing.Point(95, 128);
+            codigoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             codigoLabel.Name = "codigoLabel";
-            codigoLabel.Size = new System.Drawing.Size(60, 20);
+            codigoLabel.Size = new System.Drawing.Size(76, 25);
             codigoLabel.TabIndex = 15;
             codigoLabel.Text = "codigo:";
             // 
@@ -104,9 +106,10 @@
             // 
             descripcionLabel.AutoSize = true;
             descripcionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            descripcionLabel.Location = new System.Drawing.Point(38, 136);
+            descripcionLabel.Location = new System.Drawing.Point(51, 167);
+            descripcionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             descripcionLabel.Name = "descripcionLabel";
-            descripcionLabel.Size = new System.Drawing.Size(93, 20);
+            descripcionLabel.Size = new System.Drawing.Size(117, 25);
             descripcionLabel.TabIndex = 17;
             descripcionLabel.Text = "descripcion:";
             // 
@@ -114,9 +117,10 @@
             // 
             precioLabel.AutoSize = true;
             precioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            precioLabel.Location = new System.Drawing.Point(75, 213);
+            precioLabel.Location = new System.Drawing.Point(100, 262);
+            precioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             precioLabel.Name = "precioLabel";
-            precioLabel.Size = new System.Drawing.Size(56, 20);
+            precioLabel.Size = new System.Drawing.Size(71, 25);
             precioLabel.TabIndex = 19;
             precioLabel.Text = "precio:";
             // 
@@ -124,9 +128,10 @@
             // 
             descuentoLabel.AutoSize = true;
             descuentoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            descuentoLabel.Location = new System.Drawing.Point(43, 245);
+            descuentoLabel.Location = new System.Drawing.Point(57, 302);
+            descuentoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             descuentoLabel.Name = "descuentoLabel";
-            descuentoLabel.Size = new System.Drawing.Size(88, 20);
+            descuentoLabel.Size = new System.Drawing.Size(109, 25);
             descuentoLabel.TabIndex = 21;
             descuentoLabel.Text = "descuento:";
             // 
@@ -136,6 +141,7 @@
             this.productosBindingNavigator.BindingSource = this.productosBindingSource;
             this.productosBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.productosBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.productosBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.productosBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -156,7 +162,7 @@
             this.productosBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.productosBindingNavigator.Name = "productosBindingNavigator";
             this.productosBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productosBindingNavigator.Size = new System.Drawing.Size(985, 25);
+            this.productosBindingNavigator.Size = new System.Drawing.Size(1313, 31);
             this.productosBindingNavigator.TabIndex = 0;
             this.productosBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -166,7 +172,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
             // 
             // productosBindingSource
@@ -182,7 +188,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 28);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
@@ -192,7 +198,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem.Text = "Eliminar";
             // 
             // bindingNavigatorMoveFirstItem
@@ -201,7 +207,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
             // 
             // bindingNavigatorMovePreviousItem
@@ -210,13 +216,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -224,14 +230,14 @@
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(65, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -239,7 +245,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
             // 
             // bindingNavigatorMoveLastItem
@@ -248,20 +254,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // productosBindingNavigatorSaveItem
             // 
             this.productosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.productosBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("productosBindingNavigatorSaveItem.Image")));
             this.productosBindingNavigatorSaveItem.Name = "productosBindingNavigatorSaveItem";
-            this.productosBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.productosBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
             this.productosBindingNavigatorSaveItem.Text = "Guardar datos";
             this.productosBindingNavigatorSaveItem.Click += new System.EventHandler(this.productosBindingNavigatorSaveItem_Click);
             // 
@@ -281,10 +287,12 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.productosDataGridView.DataSource = this.productosBindingSource;
-            this.productosDataGridView.Location = new System.Drawing.Point(315, 69);
+            this.productosDataGridView.Location = new System.Drawing.Point(420, 85);
+            this.productosDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.productosDataGridView.Name = "productosDataGridView";
             this.productosDataGridView.ReadOnly = true;
-            this.productosDataGridView.Size = new System.Drawing.Size(646, 254);
+            this.productosDataGridView.RowHeadersWidth = 51;
+            this.productosDataGridView.Size = new System.Drawing.Size(861, 313);
             this.productosDataGridView.TabIndex = 1;
             this.productosDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.productosDataGridView_RowValidating);
             // 
@@ -292,6 +300,7 @@
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "producto_id";
             this.dataGridViewTextBoxColumn1.HeaderText = "producto_id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
@@ -299,6 +308,7 @@
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "creado_en";
             this.dataGridViewTextBoxColumn2.HeaderText = "creado_en";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
@@ -306,6 +316,7 @@
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "codigo";
             this.dataGridViewTextBoxColumn3.HeaderText = "codigo";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
@@ -313,6 +324,7 @@
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "descripcion";
             this.dataGridViewTextBoxColumn4.HeaderText = "descripcion";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
@@ -323,6 +335,7 @@
             dataGridViewCellStyle1.NullValue = null;
             this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn5.HeaderText = "precio";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
@@ -330,14 +343,16 @@
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "descuento";
             this.dataGridViewTextBoxColumn6.HeaderText = "descuento";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(75, 349);
+            this.btnAgregar.Location = new System.Drawing.Point(100, 430);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(170, 28);
+            this.btnAgregar.Size = new System.Drawing.Size(227, 34);
             this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -345,9 +360,10 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(314, 349);
+            this.btnGuardar.Location = new System.Drawing.Point(419, 430);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(170, 28);
+            this.btnGuardar.Size = new System.Drawing.Size(227, 34);
             this.btnGuardar.TabIndex = 13;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -357,20 +373,22 @@
             // 
             this.producto_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "producto_id", true));
             this.producto_idTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.producto_idTextBox.Location = new System.Drawing.Point(137, 69);
+            this.producto_idTextBox.Location = new System.Drawing.Point(183, 85);
+            this.producto_idTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.producto_idTextBox.Name = "producto_idTextBox";
             this.producto_idTextBox.ReadOnly = true;
-            this.producto_idTextBox.Size = new System.Drawing.Size(141, 26);
+            this.producto_idTextBox.Size = new System.Drawing.Size(187, 30);
             this.producto_idTextBox.TabIndex = 14;
             // 
             // codigoMaskedTextBox
             // 
             this.codigoMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "codigo", true));
             this.codigoMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codigoMaskedTextBox.Location = new System.Drawing.Point(137, 101);
+            this.codigoMaskedTextBox.Location = new System.Drawing.Point(183, 124);
+            this.codigoMaskedTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.codigoMaskedTextBox.Mask = ">LL000000";
             this.codigoMaskedTextBox.Name = "codigoMaskedTextBox";
-            this.codigoMaskedTextBox.Size = new System.Drawing.Size(141, 26);
+            this.codigoMaskedTextBox.Size = new System.Drawing.Size(187, 30);
             this.codigoMaskedTextBox.TabIndex = 16;
             this.codigoMaskedTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.codigoMaskedTextBox_Validating);
             // 
@@ -378,36 +396,40 @@
             // 
             this.descripcionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "descripcion", true));
             this.descripcionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descripcionTextBox.Location = new System.Drawing.Point(137, 133);
+            this.descripcionTextBox.Location = new System.Drawing.Point(183, 164);
+            this.descripcionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descripcionTextBox.Multiline = true;
             this.descripcionTextBox.Name = "descripcionTextBox";
-            this.descripcionTextBox.Size = new System.Drawing.Size(141, 71);
+            this.descripcionTextBox.Size = new System.Drawing.Size(187, 86);
             this.descripcionTextBox.TabIndex = 18;
             // 
             // precioTextBox
             // 
             this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "precio", true));
             this.precioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioTextBox.Location = new System.Drawing.Point(137, 210);
+            this.precioTextBox.Location = new System.Drawing.Point(183, 258);
+            this.precioTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.precioTextBox.Name = "precioTextBox";
-            this.precioTextBox.Size = new System.Drawing.Size(141, 26);
+            this.precioTextBox.Size = new System.Drawing.Size(187, 30);
             this.precioTextBox.TabIndex = 20;
             // 
             // descuentoTextBox
             // 
             this.descuentoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "descuento", true));
             this.descuentoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descuentoTextBox.Location = new System.Drawing.Point(137, 242);
+            this.descuentoTextBox.Location = new System.Drawing.Point(183, 298);
+            this.descuentoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descuentoTextBox.Name = "descuentoTextBox";
-            this.descuentoTextBox.Size = new System.Drawing.Size(141, 26);
+            this.descuentoTextBox.Size = new System.Drawing.Size(187, 30);
             this.descuentoTextBox.TabIndex = 22;
             // 
             // btnCancelar
             // 
             this.btnCancelar.CausesValidation = false;
-            this.btnCancelar.Location = new System.Drawing.Point(568, 354);
+            this.btnCancelar.Location = new System.Drawing.Point(757, 436);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 23;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -425,9 +447,9 @@
             // 
             // FrmClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 424);
+            this.ClientSize = new System.Drawing.Size(1313, 522);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(producto_idLabel);
             this.Controls.Add(this.producto_idTextBox);
@@ -443,6 +465,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.productosDataGridView);
             this.Controls.Add(this.productosBindingNavigator);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmClientes";
             this.Text = "FrmCliente";
             this.Load += new System.EventHandler(this.FrmClientes_Load);

@@ -28,5 +28,22 @@ namespace sistema_de_facturacion
             frm.Show();
 
         }
+
+        private void btnReportesDeVentas_Click(object sender, EventArgs e)
+        {
+            frmReporteDeVentas frmRepVta= new frmReporteDeVentas();
+            frmRepVta.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmReporteVentasDetalle frmRepVtaDet = new frmReporteVentasDetalle();
+            frmRepVtaDet.Show();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
