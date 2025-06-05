@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace sistema_de_facturacion {
+namespace sistema_de_facturacion.Datasets {
     
     
     /// <summary>
@@ -20,9 +20,9 @@ namespace sistema_de_facturacion {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("FacturasDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ferreteria_facturacionDataSet3")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class FacturasDataSet : global::System.Data.DataSet {
+    public partial class ferreteria_facturacionDataSet3 : global::System.Data.DataSet {
         
         private facturas_productosDataTable tablefacturas_productos;
         
@@ -30,7 +30,7 @@ namespace sistema_de_facturacion {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public FacturasDataSet() {
+        public ferreteria_facturacionDataSet3() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace sistema_de_facturacion {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected FacturasDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ferreteria_facturacionDataSet3(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace sistema_de_facturacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            FacturasDataSet cln = ((FacturasDataSet)(base.Clone()));
+            ferreteria_facturacionDataSet3 cln = ((ferreteria_facturacionDataSet3)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace sistema_de_facturacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "FacturasDataSet";
+            this.DataSetName = "ferreteria_facturacionDataSet3";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/FacturasDataSet.xsd";
+            this.Namespace = "http://tempuri.org/ferreteria_facturacionDataSet3.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablefacturas_productos = new facturas_productosDataTable();
@@ -225,7 +225,7 @@ namespace sistema_de_facturacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            FacturasDataSet ds = new FacturasDataSet();
+            ferreteria_facturacionDataSet3 ds = new ferreteria_facturacionDataSet3();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -532,7 +532,7 @@ namespace sistema_de_facturacion {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                FacturasDataSet ds = new FacturasDataSet();
+                ferreteria_facturacionDataSet3 ds = new ferreteria_facturacionDataSet3();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -696,7 +696,7 @@ namespace sistema_de_facturacion {
         }
     }
 }
-namespace sistema_de_facturacion.FacturasDataSetTableAdapters {
+namespace sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet3TableAdapters {
     
     
     /// <summary>
@@ -884,7 +884,7 @@ SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM fact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(FacturasDataSet.facturas_productosDataTable dataTable) {
+        public virtual int Fill(ferreteria_facturacionDataSet3.facturas_productosDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -897,9 +897,9 @@ SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM fact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FacturasDataSet.facturas_productosDataTable GetData() {
+        public virtual ferreteria_facturacionDataSet3.facturas_productosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            FacturasDataSet.facturas_productosDataTable dataTable = new FacturasDataSet.facturas_productosDataTable();
+            ferreteria_facturacionDataSet3.facturas_productosDataTable dataTable = new ferreteria_facturacionDataSet3.facturas_productosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -907,14 +907,14 @@ SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM fact
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(FacturasDataSet.facturas_productosDataTable dataTable) {
+        public virtual int Update(ferreteria_facturacionDataSet3.facturas_productosDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(FacturasDataSet dataSet) {
+        public virtual int Update(ferreteria_facturacionDataSet3 dataSet) {
             return this.Adapter.Update(dataSet, "facturas_productos");
         }
         
@@ -1116,7 +1116,7 @@ SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM fact
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(FacturasDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ferreteria_facturacionDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._facturas_productosTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.facturas_productos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1135,7 +1135,7 @@ SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM fact
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(FacturasDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ferreteria_facturacionDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._facturas_productosTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.facturas_productos.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1153,7 +1153,7 @@ SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM fact
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(FacturasDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ferreteria_facturacionDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._facturas_productosTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.facturas_productos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1195,7 +1195,7 @@ SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM fact
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(FacturasDataSet dataSet) {
+        public virtual int UpdateAll(ferreteria_facturacionDataSet3 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

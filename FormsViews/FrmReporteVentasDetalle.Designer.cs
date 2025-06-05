@@ -1,6 +1,6 @@
 ﻿namespace sistema_de_facturacion.FormsViews
 {
-    partial class frmReporteVentasDetalle
+    partial class FrmReporteVentasDetalle
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.ferreteria_facturacionDataSet3 = new sistema_de_facturacion.ferreteria_facturacionDataSet3();
+            this.ferreteria_facturacionDataSet3 = new sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet3();
             this.facturas_productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facturas_productosTableAdapter = new sistema_de_facturacion.ferreteria_facturacionDataSet3TableAdapters.facturas_productosTableAdapter();
-            this.tableAdapterManager = new sistema_de_facturacion.ferreteria_facturacionDataSet3TableAdapters.TableAdapterManager();
+            this.facturas_productosTableAdapter = new sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet3TableAdapters.facturas_productosTableAdapter();
+            this.tableAdapterManager = new sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet3TableAdapters.TableAdapterManager();
             this.dtgfacturas_producto = new System.Windows.Forms.DataGridView();
-            this.clientesTableAdapter1 = new sistema_de_facturacion.ferreteria_facturacionDataSet2TableAdapters.clientesTableAdapter();
+            this.clientesTableAdapter1 = new sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet2TableAdapters.clientesTableAdapter();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.lblDesde = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.facturas_productosTableAdapter = this.facturas_productosTableAdapter;
-            this.tableAdapterManager.UpdateOrder = sistema_de_facturacion.ferreteria_facturacionDataSet3TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet3TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // dtgfacturas_producto
             // 
@@ -193,12 +193,12 @@
 
         #endregion
 
-        private ferreteria_facturacionDataSet3 ferreteria_facturacionDataSet3;
+        private sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet3 ferreteria_facturacionDataSet3;
         private System.Windows.Forms.BindingSource facturas_productosBindingSource;
-        private ferreteria_facturacionDataSet3TableAdapters.facturas_productosTableAdapter facturas_productosTableAdapter;
-        private ferreteria_facturacionDataSet3TableAdapters.TableAdapterManager tableAdapterManager;
+        private sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet3TableAdapters.facturas_productosTableAdapter facturas_productosTableAdapter;
+        private sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet3TableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView dtgfacturas_producto;
-        private ferreteria_facturacionDataSet2TableAdapters.clientesTableAdapter clientesTableAdapter1;
+        private sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet2TableAdapters.clientesTableAdapter clientesTableAdapter1;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.Label lblDesde;

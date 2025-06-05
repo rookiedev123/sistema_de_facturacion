@@ -31,13 +31,13 @@ namespace sistema_de_facturacion
 
         private void btnReportesDeVentas_Click(object sender, EventArgs e)
         {
-            frmReporteDeVentas frmRepVta= new frmReporteDeVentas();
+            FrmReporteVentasDocumento frmRepVta = new FrmReporteVentasDocumento();
             frmRepVta.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmReporteVentasDetalle frmRepVtaDet = new frmReporteVentasDetalle();
+            FrmReporteVentasDetalle frmRepVtaDet = new FrmReporteVentasDetalle();
             frmRepVtaDet.Show();
         }
 

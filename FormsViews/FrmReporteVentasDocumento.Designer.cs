@@ -1,6 +1,6 @@
 ﻿namespace sistema_de_facturacion.FormsViews
 {
-    partial class frmReporteDeVentas
+    partial class FrmReporteVentasDocumento
     {
         /// <summary>
         /// Required designer variable.
@@ -35,22 +35,22 @@
             this.lblHasta = new System.Windows.Forms.Label();
             this.cbxBuscadorClientes = new System.Windows.Forms.ComboBox();
             this.clientesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.ferreteria_facturacionDataSet2 = new sistema_de_facturacion.ferreteria_facturacionDataSet2();
+            this.ferreteria_facturacionDataSet2 = new sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet2();
             this.lblClientes = new System.Windows.Forms.Label();
             this.productosDataSet = new sistema_de_facturacion.Datasets.ProductosDataSet();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new sistema_de_facturacion.Datasets.ProductosDataSetTableAdapters.productosTableAdapter();
             this.dtgReporteVentas = new System.Windows.Forms.DataGridView();
             this.facturas_productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facturasDataSet = new sistema_de_facturacion.FacturasDataSet();
-            this.ferreteria_facturacionDataSet = new sistema_de_facturacion.ferreteria_facturacionDataSet();
+            this.facturasDataSet = new sistema_de_facturacion.Datasets.FacturasDataSet();
+            this.ferreteria_facturacionDataSet = new sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet();
             this.facturasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facturasTableAdapter = new sistema_de_facturacion.ferreteria_facturacionDataSetTableAdapters.facturasTableAdapter();
-            this.tableAdapterManager = new sistema_de_facturacion.ferreteria_facturacionDataSetTableAdapters.TableAdapterManager();
-            this.facturas_productosTableAdapter = new sistema_de_facturacion.FacturasDataSetTableAdapters.facturas_productosTableAdapter();
-            this.tableAdapterManager1 = new sistema_de_facturacion.FacturasDataSetTableAdapters.TableAdapterManager();
+            this.facturasTableAdapter = new sistema_de_facturacion.Datasets.ferreteria_facturacionDataSetTableAdapters.facturasTableAdapter();
+            this.tableAdapterManager = new sistema_de_facturacion.Datasets.ferreteria_facturacionDataSetTableAdapters.TableAdapterManager();
+            this.facturas_productosTableAdapter = new sistema_de_facturacion.Datasets.FacturasDataSetTableAdapters.facturas_productosTableAdapter();
+            this.tableAdapterManager1 = new sistema_de_facturacion.Datasets.FacturasDataSetTableAdapters.TableAdapterManager();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesTableAdapter = new sistema_de_facturacion.ferreteria_facturacionDataSet2TableAdapters.clientesTableAdapter();
+            this.clientesTableAdapter = new sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet2TableAdapters.clientesTableAdapter();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -189,7 +189,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.facturasTableAdapter = this.facturasTableAdapter;
-            this.tableAdapterManager.UpdateOrder = sistema_de_facturacion.ferreteria_facturacionDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = sistema_de_facturacion.Datasets.ferreteria_facturacionDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // facturas_productosTableAdapter
             // 
@@ -199,7 +199,7 @@
             // 
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.facturas_productosTableAdapter = this.facturas_productosTableAdapter;
-            this.tableAdapterManager1.UpdateOrder = sistema_de_facturacion.FacturasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.UpdateOrder = sistema_de_facturacion.Datasets.FacturasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // clientesBindingSource
             // 
@@ -275,17 +275,17 @@
         private System.Windows.Forms.BindingSource productosBindingSource;
         private Datasets.ProductosDataSetTableAdapters.productosTableAdapter productosTableAdapter;
         private System.Windows.Forms.DataGridView dtgReporteVentas;
-        private ferreteria_facturacionDataSet ferreteria_facturacionDataSet;
+        private sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet ferreteria_facturacionDataSet;
         private System.Windows.Forms.BindingSource facturasBindingSource;
-        private ferreteria_facturacionDataSetTableAdapters.facturasTableAdapter facturasTableAdapter;
-        private ferreteria_facturacionDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private FacturasDataSet facturasDataSet;
+        private sistema_de_facturacion.Datasets.ferreteria_facturacionDataSetTableAdapters.facturasTableAdapter facturasTableAdapter;
+        private sistema_de_facturacion.Datasets.ferreteria_facturacionDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private sistema_de_facturacion.Datasets.FacturasDataSet facturasDataSet;
         private System.Windows.Forms.BindingSource facturas_productosBindingSource;
-        private FacturasDataSetTableAdapters.facturas_productosTableAdapter facturas_productosTableAdapter;
-        private FacturasDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
-        private ferreteria_facturacionDataSet2 ferreteria_facturacionDataSet2;
+        private sistema_de_facturacion.Datasets.FacturasDataSetTableAdapters.facturas_productosTableAdapter facturas_productosTableAdapter;
+        private sistema_de_facturacion.Datasets.FacturasDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
+        private sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet2 ferreteria_facturacionDataSet2;
         private System.Windows.Forms.BindingSource clientesBindingSource;
-        private ferreteria_facturacionDataSet2TableAdapters.clientesTableAdapter clientesTableAdapter;
+        private sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet2TableAdapters.clientesTableAdapter clientesTableAdapter;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private System.Windows.Forms.BindingSource clientesBindingSource2;
         private System.Windows.Forms.Button btnActualizar;

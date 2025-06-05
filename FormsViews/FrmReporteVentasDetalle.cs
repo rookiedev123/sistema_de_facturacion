@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace sistema_de_facturacion.FormsViews
 {
-    public partial class frmReporteVentasDetalle : Form
+    public partial class FrmReporteVentasDetalle : Form
     {
-        public frmReporteVentasDetalle()
+        public FrmReporteVentasDetalle()
         {
             InitializeComponent();
         }

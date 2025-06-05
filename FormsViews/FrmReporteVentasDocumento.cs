@@ -12,9 +12,9 @@ using System.Data.SqlClient;
 
 namespace sistema_de_facturacion.FormsViews
 {
-    public partial class frmReporteDeVentas : Form
+    public partial class FrmReporteVentasDocumento : Form
     {
-        public frmReporteDeVentas()
+        public FrmReporteVentasDocumento()
         {
             InitializeComponent();
         }

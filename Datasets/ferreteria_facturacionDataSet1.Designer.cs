@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace sistema_de_facturacion {
+namespace sistema_de_facturacion.Datasets {
     
     
     /// <summary>
@@ -1179,7 +1179,7 @@ namespace sistema_de_facturacion {
         }
     }
 }
-namespace sistema_de_facturacion.ferreteria_facturacionDataSet1TableAdapters {
+namespace sistema_de_facturacion.Datasets.ferreteria_facturacionDataSet1TableAdapters {
     
     
     /// <summary>
