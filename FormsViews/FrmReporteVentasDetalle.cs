@@ -1,10 +1,13 @@
-﻿using System;
+﻿using sistema_de_facturacion.Models;
+using sistema_de_facturacion.Services.Facturacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,11 +31,8 @@ namespace sistema_de_facturacion.FormsViews
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'productosDataSet.productos' 
-            this.productosTableAdapter.Fill(this.productosDataSet.productos);
-            /*// TODO: esta línea de código carga datos en la tabla 'ferreteria_facturacionDataSet3.facturas_productos'
-            this.facturas_productosTableAdapter.Fill(this.ferreteria_facturacionDataSet3.facturas_productos);*/
-
+            //TODO: esta línea de código carga datos en la tabla 'productosDataSet1.productos' Puede moverla o quitarla según sea necesario.
+            this.productosTableAdapter.Fill(this.productosDataSet1.productos);
         }
 
         private void btnActualizarRepVtaDet_Click(object sender, EventArgs e)
@@ -46,18 +46,41 @@ namespace sistema_de_facturacion.FormsViews
 
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
-                SqlCommand cmd = new SqlCommand("ReporteVentasDetalleProd",conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@productoId", producto_id);
-                cmd.Parameters.AddWithValue("@fechaDesde",fechaDesde);
-                cmd.Parameters.AddWithValue("@fechaHasta",fechaHasta);
+                try
+                {
+                    string query = @"
+                SELECT
+                    p.codigo as 'Codigo Producto',
+                    p.descripcion as Descripcion,
+                    f.factura_id as 'Número de Factura',
+                    f.creado_en as Fecha,
+                    fp.cantidad as Cantidad,
+                    fp.total_descuento as Descuento,
+                    fp.total_pagar as Total
+		            FROM facturas_productos fp
+		            INNER JOIN productos p ON fp.producto_id = p.producto_id
+		            INNER JOIN facturas f ON fp.factura_id = f.factura_id
+		            WHERE fp.producto_id = @productoId
+		            AND f.creado_en BETWEEN @fechaDesde AND DATEADD(SECOND, -1, DATEADD(DAY, 1, @fechaHasta))";
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@productoId", producto_id);
+                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
 
-                dtgfacturas_producto.DataSource = dt;
-            }
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dtgfacturas_producto.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ingrese datos correctos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                }
+
 
         }
     }

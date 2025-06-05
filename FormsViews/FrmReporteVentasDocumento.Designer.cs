@@ -70,33 +70,35 @@
             // 
             // dtpDesdeR
             // 
-            this.dtpDesdeR.Location = new System.Drawing.Point(39, 43);
+            this.dtpDesdeR.Location = new System.Drawing.Point(39, 55);
             this.dtpDesdeR.Name = "dtpDesdeR";
-            this.dtpDesdeR.Size = new System.Drawing.Size(200, 22);
+            this.dtpDesdeR.Size = new System.Drawing.Size(297, 22);
             this.dtpDesdeR.TabIndex = 0;
             // 
             // dtpHastaR
             // 
-            this.dtpHastaR.Location = new System.Drawing.Point(300, 43);
+            this.dtpHastaR.Location = new System.Drawing.Point(404, 55);
             this.dtpHastaR.Name = "dtpHastaR";
-            this.dtpHastaR.Size = new System.Drawing.Size(200, 22);
+            this.dtpHastaR.Size = new System.Drawing.Size(294, 22);
             this.dtpHastaR.TabIndex = 1;
             // 
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(39, 13);
+            this.lblDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesde.Location = new System.Drawing.Point(34, 13);
             this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(48, 16);
+            this.lblDesde.Size = new System.Drawing.Size(89, 29);
             this.lblDesde.TabIndex = 2;
             this.lblDesde.Text = "Desde";
             // 
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(297, 13);
+            this.lblHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHasta.Location = new System.Drawing.Point(401, 9);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(43, 16);
+            this.lblHasta.Size = new System.Drawing.Size(79, 29);
             this.lblHasta.TabIndex = 3;
             this.lblHasta.Text = "Hasta";
             // 
@@ -104,12 +106,13 @@
             // 
             this.cbxBuscadorClientes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbxBuscadorClientes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxBuscadorClientes.BackColor = System.Drawing.Color.Silver;
             this.cbxBuscadorClientes.DataSource = this.clientesBindingSource3;
             this.cbxBuscadorClientes.DisplayMember = "nombres";
             this.cbxBuscadorClientes.FormattingEnabled = true;
-            this.cbxBuscadorClientes.Location = new System.Drawing.Point(39, 105);
+            this.cbxBuscadorClientes.Location = new System.Drawing.Point(39, 132);
             this.cbxBuscadorClientes.Name = "cbxBuscadorClientes";
-            this.cbxBuscadorClientes.Size = new System.Drawing.Size(121, 24);
+            this.cbxBuscadorClientes.Size = new System.Drawing.Size(659, 24);
             this.cbxBuscadorClientes.TabIndex = 4;
             this.cbxBuscadorClientes.ValueMember = "clienteId";
             // 
@@ -126,9 +129,10 @@
             // lblClientes
             // 
             this.lblClientes.AutoSize = true;
-            this.lblClientes.Location = new System.Drawing.Point(39, 83);
+            this.lblClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientes.Location = new System.Drawing.Point(34, 89);
             this.lblClientes.Name = "lblClientes";
-            this.lblClientes.Size = new System.Drawing.Size(55, 16);
+            this.lblClientes.Size = new System.Drawing.Size(109, 29);
             this.lblClientes.TabIndex = 5;
             this.lblClientes.Text = "Clientes";
             // 
@@ -222,15 +226,17 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(661, 43);
+            this.btnActualizar.BackColor = System.Drawing.Color.Lavender;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Location = new System.Drawing.Point(783, 45);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(103, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(191, 93);
             this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // frmReporteDeVentas
+            // FrmReporteVentasDocumento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -243,7 +249,7 @@
             this.Controls.Add(this.dtpHastaR);
             this.Controls.Add(this.dtpDesdeR);
             this.Controls.Add(this.cbxBuscadorClientes);
-            this.Name = "frmReporteDeVentas";
+            this.Name = "FrmReporteVentasDocumento";
             this.Text = "REPORTE DE VENTAS";
             this.Load += new System.EventHandler(this.frmReporteDeVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource3)).EndInit();

@@ -122,6 +122,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\FacturasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\ferreteria_facturacionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ferreteria_facturacionDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\ferreteria_facturacionDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ferreteria_facturacionDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\ferreteria_facturacionDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ferreteria_facturacionDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\ferreteria_facturacionDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ferreteria_facturacionDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormsViews\FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +170,24 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsViews\Menú.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsViews\Menú.Designer.cs">
+      <DependentUpon>Menú.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsViews\FrmReporteVentasDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsViews\FrmReporteVentasDetalle.Designer.cs">
+      <DependentUpon>FrmReporteVentasDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsViews\FrmReporteVentasDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsViews\FrmReporteVentasDocumento.Designer.cs">
+      <DependentUpon>FrmReporteVentasDocumento.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Connections\IConnectionString.cs" />
     <Compile Include="Models\Connections\SqlDataConn.cs" />
@@ -184,6 +227,15 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormsViews\Menú.resx">
+      <DependentUpon>Menú.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsViews\FrmReporteVentasDetalle.resx">
+      <DependentUpon>FrmReporteVentasDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsViews\FrmReporteVentasDocumento.resx">
+      <DependentUpon>FrmReporteVentasDocumento.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -191,6 +243,61 @@
     </Compile>
     <None Include="Datasets\ClientesDataSet.xsc">
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\FacturasDataSet.xsc">
+      <DependentUpon>FacturasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\FacturasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FacturasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\FacturasDataSet.xss">
+      <DependentUpon>FacturasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet.xsc">
+      <DependentUpon>ferreteria_facturacionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ferreteria_facturacionDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet.xss">
+      <DependentUpon>ferreteria_facturacionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet1.xsc">
+      <DependentUpon>ferreteria_facturacionDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ferreteria_facturacionDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet1.xss">
+      <DependentUpon>ferreteria_facturacionDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet2.xsc">
+      <DependentUpon>ferreteria_facturacionDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ferreteria_facturacionDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet2.xss">
+      <DependentUpon>ferreteria_facturacionDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet3.xsc">
+      <DependentUpon>ferreteria_facturacionDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ferreteria_facturacionDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\ferreteria_facturacionDataSet3.xss">
+      <DependentUpon>ferreteria_facturacionDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Datasets\ClientesDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
