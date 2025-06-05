@@ -34,6 +34,12 @@ namespace sistema_de_facturacion.Models
             return this.SelectSentences<Clientes>(sql);
 
         }
+        //prueba
+        public ResultPattern<List<Clientes>> GetClientes(Dictionary<string, object> parameter)
+        {
+            string sql = "select document,nombres,apellidos from clientes";
+            return this.SelectSentences<Clientes>(sql,parameter);
+        }
 
         public ResultPattern<List<Productos>> GetProducts()
         {
