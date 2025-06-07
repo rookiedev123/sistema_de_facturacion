@@ -132,19 +132,15 @@ namespace sistema_de_facturacion.Datasets {
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected override bool ShouldSerializeTables() {
-            return false;
-        }
-        
+        protected override bool ShouldSerializeTables() => false;
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected override bool ShouldSerializeRelations() {
-            return false;
-        }
-        
+        protected override bool ShouldSerializeRelations() => false;
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         protected override void ReadXmlSerializable(global::System.Xml.XmlReader reader) {
@@ -178,13 +174,11 @@ namespace sistema_de_facturacion.Datasets {
             stream.Position = 0;
             return global::System.Xml.Schema.XmlSchema.Read(new global::System.Xml.XmlTextReader(stream), null);
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal void InitVars() {
-            this.InitVars(true);
-        }
-        
+        internal void InitVars() => this.InitVars(true);
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
@@ -207,13 +201,11 @@ namespace sistema_de_facturacion.Datasets {
             this.tableproductos = new productosDataTable();
             base.Tables.Add(this.tableproductos);
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeproductos() {
-            return false;
-        }
-        
+        private bool ShouldSerializeproductos() => false;
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
@@ -400,13 +392,11 @@ namespace sistema_de_facturacion.Datasets {
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public event productosRowChangeEventHandler productosRowDeleted;
-            
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddproductosRow(productosRow row) {
-                this.Rows.Add(row);
-            }
-            
+            public void AddproductosRow(productosRow row) => this.Rows.Add(row);
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public productosRow AddproductosRow(System.DateTime creado_en, string codigo, string descripcion, decimal precio, decimal descuento) {
@@ -422,14 +412,12 @@ namespace sistema_de_facturacion.Datasets {
                 this.Rows.Add(rowproductosRow);
                 return rowproductosRow;
             }
-            
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public productosRow FindByproducto_id(int producto_id) {
-                return ((productosRow)(this.Rows.Find(new object[] {
+            public productosRow FindByproducto_id(int producto_id) => ((productosRow)(this.Rows.Find(new object[] {
                             producto_id})));
-            }
-            
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
@@ -437,13 +425,11 @@ namespace sistema_de_facturacion.Datasets {
                 cln.InitVars();
                 return cln;
             }
-            
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new productosDataTable();
-            }
-            
+            protected override global::System.Data.DataTable CreateInstance() => new productosDataTable();
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
@@ -486,25 +472,19 @@ namespace sistema_de_facturacion.Datasets {
                 this.columndescripcion.MaxLength = 200;
                 this.columnprecio.AllowDBNull = false;
             }
-            
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public productosRow NewproductosRow() {
-                return ((productosRow)(this.NewRow()));
-            }
-            
+            public productosRow NewproductosRow() => ((productosRow)(this.NewRow()));
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new productosRow(builder);
-            }
-            
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) => new productosRow(builder);
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(productosRow);
-            }
-            
+            protected override global::System.Type GetRowType() => typeof(productosRow);
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
@@ -540,13 +520,11 @@ namespace sistema_de_facturacion.Datasets {
                     this.productosRowDeleting(this, new productosRowChangeEvent(((productosRow)(e.Row)), e.Action));
                 }
             }
-            
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveproductosRow(productosRow row) {
-                this.Rows.Remove(row);
-            }
-            
+            public void RemoveproductosRow(productosRow row) => this.Rows.Remove(row);
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
@@ -700,30 +678,22 @@ namespace sistema_de_facturacion.Datasets {
                     this[this.tableproductos.descuentoColumn] = value;
                 }
             }
-            
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Iscreado_enNull() {
-                return this.IsNull(this.tableproductos.creado_enColumn);
-            }
-            
+            public bool Iscreado_enNull() => this.IsNull(this.tableproductos.creado_enColumn);
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setcreado_enNull() {
-                this[this.tableproductos.creado_enColumn] = global::System.Convert.DBNull;
-            }
-            
+            public void Setcreado_enNull() => this[this.tableproductos.creado_enColumn] = global::System.Convert.DBNull;
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsdescuentoNull() {
-                return this.IsNull(this.tableproductos.descuentoColumn);
-            }
-            
+            public bool IsdescuentoNull() => this.IsNull(this.tableproductos.descuentoColumn);
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetdescuentoNull() {
-                this[this.tableproductos.descuentoColumn] = global::System.Convert.DBNull;
-            }
+            public void SetdescuentoNull() => this[this.tableproductos.descuentoColumn] = global::System.Convert.DBNull;
         }
         
         /// <summary>
@@ -976,36 +946,28 @@ SELECT producto_id, creado_en, codigo, descripcion, precio, descuento FROM produ
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ProductosDataSet.productosDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
+        public virtual int Update(ProductosDataSet.productosDataTable dataTable) => this.Adapter.Update(dataTable);
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ProductosDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "productos");
-        }
-        
+        public virtual int Update(ProductosDataSet dataSet) => this.Adapter.Update(dataSet, "productos");
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
+        public virtual int Update(global::System.Data.DataRow dataRow) => this.Adapter.Update(new global::System.Data.DataRow[] {
                         dataRow});
-        }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
+        public virtual int Update(global::System.Data.DataRow[] dataRows) => this.Adapter.Update(dataRows);
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
@@ -1194,14 +1156,12 @@ SELECT producto_id, creado_en, codigo, descripcion, precio, descuento FROM produ
                 }
             }
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> creado_en, string codigo, string descripcion, decimal precio, global::System.Nullable<decimal> descuento, global::System.Nullable<int> Original_producto_id, global::System.Nullable<global::System.DateTime> Original_creado_en, string Original_codigo, string Original_descripcion, decimal Original_precio, global::System.Nullable<decimal> Original_descuento) {
-            return this.Update(creado_en, codigo, descripcion, precio, descuento, Original_producto_id, Original_creado_en, Original_codigo, Original_descripcion, Original_precio, Original_descuento, Original_producto_id);
-        }
+        public virtual int Update(global::System.Nullable<global::System.DateTime> creado_en, string codigo, string descripcion, decimal precio, global::System.Nullable<decimal> descuento, global::System.Nullable<int> Original_producto_id, global::System.Nullable<global::System.DateTime> Original_creado_en, string Original_codigo, string Original_descripcion, decimal Original_precio, global::System.Nullable<decimal> Original_descuento) => this.Update(creado_en, codigo, descripcion, precio, descuento, Original_producto_id, Original_creado_en, Original_codigo, Original_descripcion, Original_precio, Original_descuento, Original_producto_id);
     }
     
     /// <summary>
@@ -1500,13 +1460,11 @@ SELECT producto_id, creado_en, codigo, descripcion, precio, descuento FROM produ
             }
             return result;
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected virtual void SortSelfReferenceRows(global::System.Data.DataRow[] rows, global::System.Data.DataRelation relation, bool childFirst) {
-            global::System.Array.Sort<global::System.Data.DataRow>(rows, new SelfReferenceComparer(relation, childFirst));
-        }
-        
+        protected virtual void SortSelfReferenceRows(global::System.Data.DataRow[] rows, global::System.Data.DataRelation relation, bool childFirst) => global::System.Array.Sort<global::System.Data.DataRow>(rows, new SelfReferenceComparer(relation, childFirst));
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         protected virtual bool MatchTableAdapterConnection(global::System.Data.IDbConnection inputConnection) {

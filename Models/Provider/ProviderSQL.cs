@@ -13,10 +13,7 @@ namespace sistema_de_facturacion.Models.Provider
     {
 
         IConnectionString connString;
-        public void SetConnectionString(IConnectionString connString)
-        {
-            this.connString = connString;
-        }
+        public void SetConnectionString(IConnectionString connString) => this.connString = connString;
 
         /// <summary>
         /// Función para consultas que no retornan tablas de datos

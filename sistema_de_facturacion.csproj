@@ -47,6 +47,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
@@ -61,7 +65,7 @@
       <HintPath>packages\Microsoft.Data.SqlClient.6.0.2\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -75,6 +79,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ferreteria_facturacionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ferreteria_facturacionDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormsViews\FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +96,19 @@
     <Compile Include="FormsViews\FrmFactura.Designer.cs">
       <DependentUpon>FrmFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsViews\Login_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsViews\Login_Form.Designer.cs">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsViews\MainForm.cs" />
+    <Compile Include="FormsViews\PagosDeudasForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsViews\PagosDeudasForm2.Designer.cs">
+      <DependentUpon>PagosDeudasForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +118,7 @@
     <Compile Include="Models\Connections\IConnectionString.cs" />
     <Compile Include="Models\Connections\SqlDataConn.cs" />
     <Compile Include="Models\FacturacionModel.cs" />
+    <Compile Include="Models\PagoDeuda.cs" />
     <Compile Include="Models\Provider\IProvider.cs" />
     <Compile Include="Models\Provider\PatternResult.cs" />
     <Compile Include="Models\Provider\ProviderSQL.cs" />
@@ -104,6 +127,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductosDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Facturacion\Factura.cs" />
@@ -116,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsViews\FrmFactura.resx">
       <DependentUpon>FrmFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsViews\Login_Form.resx">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsViews\PagosDeudasForm2.resx">
+      <DependentUpon>PagosDeudasForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -130,6 +160,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ferreteria_facturacionDataSet.xsc">
+      <DependentUpon>ferreteria_facturacionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ferreteria_facturacionDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ferreteria_facturacionDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ferreteria_facturacionDataSet.xss">
+      <DependentUpon>ferreteria_facturacionDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Datasets\ProductosDataSet.xsc">
       <DependentUpon>ProductosDataSet.xsd</DependentUpon>
@@ -174,6 +215,13 @@
     <Content Include="Data\ferreteria_facturacion_log.ldf">
       <DependentUpon>ferreteria_facturacion.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ferreteria_facturacion.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ferreteria_facturacion_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>ferreteria_facturacion.mdf</DependentUpon>
     </Content>
     <None Include="Resources\coin.png" />
     <None Include="Resources\pay.png" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sistema_de_facturacion.FormsViews;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace sistema_de_facturacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeForm());
+            Application.Run(new Login_Form());
         }
     }
 }

@@ -95,10 +95,7 @@ namespace sistema_de_facturacion.Services.Facturacion
 
         }
 
-        public void LimpiarArticulos() {
-            this.articulos.Clear();
-
-        }
+        public void LimpiarArticulos() => this.articulos.Clear();
 
 
     }
