@@ -354,32 +354,7 @@ namespace sistema_de_facturacion.FormsViews
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
-            var autoValidate = this.AutoValidate;
-            this.AutoValidate = AutoValidate.Disable;
-
-            cboTipoDocumento.SelectedIndex = -1;
-            mktxtCodigoCliente.Text = String.Empty;
-            mktxtCodigoCliente.Mask = String.Empty;
-            txtNombreCliente.Text = String.Empty;
-            cboTipoPago.SelectedIndex = -1;
-            txtCodigoProducto.Text = String.Empty;
-            txtPago.Text = String.Empty;
-            txtTotal.Text = String.Empty;
-            txtDescTotal.Text = String.Empty;
-            txtNetoTotal.Text = String.Empty;
-            txtDevolver.Text = String.Empty;
-            chkFacturaFiscal.Checked = false;
-            existeCliente = false;
-            txtNombreCliente.ReadOnly = false;
-
-            factura.LimpiarArticulos();
-            factura = null;
-            factura = new Factura(impuestos);
-            articulos_dataGridView.DataSource = factura.articulos;
-
-            cboTipoDocumento.Select();
-
-            this.AutoValidate = autoValidate;
+            FrmClear();
 
         }
 
@@ -415,6 +390,7 @@ namespace sistema_de_facturacion.FormsViews
 
             }
 
+            factura.Cliente = txtNombreCliente.Text;
 
             //Insertar entrada de factura
             Dictionary<string, object> paramsFactura = new Dictionary<string, object>()
@@ -432,7 +408,7 @@ namespace sistema_de_facturacion.FormsViews
             }
 
 
-            factura.FacturaId = insertFactura.Value[0].factura_id.PadRight(10, '0');
+            factura.FacturaId = insertFactura.Value[0].factura_id.PadLeft(10, '0');
 
 
             //Insertar en
@@ -470,9 +446,21 @@ namespace sistema_de_facturacion.FormsViews
                 facturaArchivo = new TicketPDF();
             }
 
+            try
+            {
+                facturaArchivo.GenerarFactura(factura);
+                facturaArchivo.MostrarArchivo();
+                FrmClear();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             
-            facturaArchivo.GenerarFactura(factura);
-            facturaArchivo.MostrarArchivo();
+           
 
         }
 
@@ -498,5 +486,36 @@ namespace sistema_de_facturacion.FormsViews
 
             }
         }
+
+        private void FrmClear() {
+
+            var autoValidate = this.AutoValidate;
+            this.AutoValidate = AutoValidate.Disable;
+
+            cboTipoDocumento.SelectedIndex = -1;
+            mktxtCodigoCliente.Text = String.Empty;
+            mktxtCodigoCliente.Mask = String.Empty;
+            txtNombreCliente.Text = String.Empty;
+            cboTipoPago.SelectedIndex = -1;
+            txtCodigoProducto.Text = String.Empty;
+            txtPago.Text = String.Empty;
+            txtTotal.Text = String.Empty;
+            txtDescTotal.Text = String.Empty;
+            txtNetoTotal.Text = String.Empty;
+            txtDevolver.Text = String.Empty;
+            chkFacturaFiscal.Checked = false;
+            existeCliente = false;
+            txtNombreCliente.ReadOnly = false;
+
+            factura.LimpiarArticulos();
+            factura = null;
+            factura = new Factura(impuestos);
+            articulos_dataGridView.DataSource = factura.articulos;
+
+            cboTipoDocumento.Select();
+
+            this.AutoValidate = autoValidate;
+        }
+
     }
 }

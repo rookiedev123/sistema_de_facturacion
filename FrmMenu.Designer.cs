@@ -29,7 +29,6 @@
             this.btnReportesDeVentas = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.btnControlPagos = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.picFondo = new System.Windows.Forms.PictureBox();
@@ -100,17 +99,6 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // btnControlPagos
-            // 
-            this.btnControlPagos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnControlPagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnControlPagos.Location = new System.Drawing.Point(3, 303);
-            this.btnControlPagos.Name = "btnControlPagos";
-            this.btnControlPagos.Size = new System.Drawing.Size(369, 57);
-            this.btnControlPagos.TabIndex = 5;
-            this.btnControlPagos.Text = "Control de Pagos y Deudas";
-            this.btnControlPagos.UseVisualStyleBackColor = true;
-            // 
             // btnSalir
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -133,7 +121,6 @@
             this.tableLayoutPanel1.Controls.Add(this.btn_facturar, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnProductos_, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnClientes, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnControlPagos, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnReportesDeVentas, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.button2, 0, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 104);
@@ -203,7 +190,6 @@
         private System.Windows.Forms.Button btnReportesDeVentas;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Button btnControlPagos;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox picFondo;
