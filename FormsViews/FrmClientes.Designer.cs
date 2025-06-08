@@ -29,43 +29,63 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label documentIdLabel;
-            System.Windows.Forms.Label nombreCompletoLabel;
+            System.Windows.Forms.Label documentIdLabel1;
+            System.Windows.Forms.Label nombreCompletoLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientes));
             this.clientesDataSet = new sistema_de_facturacion.Datasets.ClientesDataSet();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new sistema_de_facturacion.Datasets.ClientesDataSetTableAdapters.clientesTableAdapter();
             this.tableAdapterManager = new sistema_de_facturacion.Datasets.ClientesDataSetTableAdapters.TableAdapterManager();
             this.clientesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.documentIdTextBox = new System.Windows.Forms.TextBox();
-            this.nombreCompletoTextBox = new System.Windows.Forms.TextBox();
-            this.clientesDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clientesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.clientesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            documentIdLabel = new System.Windows.Forms.Label();
-            nombreCompletoLabel = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.documentIdTextBox = new System.Windows.Forms.TextBox();
+            this.nombreCompletoTextBox = new System.Windows.Forms.TextBox();
+            documentIdLabel1 = new System.Windows.Forms.Label();
+            nombreCompletoLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingNavigator)).BeginInit();
             this.clientesBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // documentIdLabel1
+            // 
+            documentIdLabel1.AutoSize = true;
+            documentIdLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            documentIdLabel1.Location = new System.Drawing.Point(59, 59);
+            documentIdLabel1.Name = "documentIdLabel1";
+            documentIdLabel1.Size = new System.Drawing.Size(114, 20);
+            documentIdLabel1.TabIndex = 8;
+            documentIdLabel1.Text = "document Id:";
+            // 
+            // nombreCompletoLabel1
+            // 
+            nombreCompletoLabel1.AutoSize = true;
+            nombreCompletoLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nombreCompletoLabel1.Location = new System.Drawing.Point(18, 91);
+            nombreCompletoLabel1.Name = "nombreCompletoLabel1";
+            nombreCompletoLabel1.Size = new System.Drawing.Size(155, 20);
+            nombreCompletoLabel1.TabIndex = 10;
+            nombreCompletoLabel1.Text = "nombre Completo:";
             // 
             // clientesDataSet
             // 
@@ -113,138 +133,9 @@
             this.clientesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.clientesBindingNavigator.Name = "clientesBindingNavigator";
             this.clientesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.clientesBindingNavigator.Size = new System.Drawing.Size(905, 25);
+            this.clientesBindingNavigator.Size = new System.Drawing.Size(913, 25);
             this.clientesBindingNavigator.TabIndex = 0;
             this.clientesBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // documentIdLabel
-            // 
-            documentIdLabel.AutoSize = true;
-            documentIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            documentIdLabel.Location = new System.Drawing.Point(22, 59);
-            documentIdLabel.Name = "documentIdLabel";
-            documentIdLabel.Size = new System.Drawing.Size(102, 20);
-            documentIdLabel.TabIndex = 1;
-            documentIdLabel.Text = "document Id:";
-            // 
-            // documentIdTextBox
-            // 
-            this.documentIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "documentId", true));
-            this.documentIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.documentIdTextBox.Location = new System.Drawing.Point(165, 56);
-            this.documentIdTextBox.Name = "documentIdTextBox";
-            this.documentIdTextBox.Size = new System.Drawing.Size(180, 26);
-            this.documentIdTextBox.TabIndex = 2;
-            // 
-            // nombreCompletoLabel
-            // 
-            nombreCompletoLabel.AutoSize = true;
-            nombreCompletoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nombreCompletoLabel.Location = new System.Drawing.Point(22, 91);
-            nombreCompletoLabel.Name = "nombreCompletoLabel";
-            nombreCompletoLabel.Size = new System.Drawing.Size(139, 20);
-            nombreCompletoLabel.TabIndex = 3;
-            nombreCompletoLabel.Text = "nombre Completo:";
-            // 
-            // nombreCompletoTextBox
-            // 
-            this.nombreCompletoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "nombreCompleto", true));
-            this.nombreCompletoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreCompletoTextBox.Location = new System.Drawing.Point(165, 88);
-            this.nombreCompletoTextBox.Multiline = true;
-            this.nombreCompletoTextBox.Name = "nombreCompletoTextBox";
-            this.nombreCompletoTextBox.Size = new System.Drawing.Size(180, 57);
-            this.nombreCompletoTextBox.TabIndex = 4;
-            // 
-            // clientesDataGridView
-            // 
-            this.clientesDataGridView.AllowUserToAddRows = false;
-            this.clientesDataGridView.AllowUserToDeleteRows = false;
-            this.clientesDataGridView.AutoGenerateColumns = false;
-            this.clientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.clientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.clientesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.clientesDataGridView.DataSource = this.clientesBindingSource;
-            this.clientesDataGridView.Location = new System.Drawing.Point(374, 56);
-            this.clientesDataGridView.Name = "clientesDataGridView";
-            this.clientesDataGridView.Size = new System.Drawing.Size(519, 313);
-            this.clientesDataGridView.TabIndex = 5;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Image = global::sistema_de_facturacion.Properties.Resources.agregar;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregar.Location = new System.Drawing.Point(26, 306);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(92, 63);
-            this.btnAgregar.TabIndex = 6;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::sistema_de_facturacion.Properties.Resources.guardar;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(142, 306);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(92, 63);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = global::sistema_de_facturacion.Properties.Resources.error;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(255, 306);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(90, 63);
-            this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -254,6 +145,13 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -282,6 +180,26 @@
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -300,6 +218,11 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // clientesBindingNavigatorSaveItem
             // 
             this.clientesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -307,7 +230,24 @@
             this.clientesBindingNavigatorSaveItem.Name = "clientesBindingNavigatorSaveItem";
             this.clientesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.clientesBindingNavigatorSaveItem.Text = "Guardar datos";
-            this.clientesBindingNavigatorSaveItem.Click += new System.EventHandler(this.clientesBindingNavigatorSaveItem_Click_1);
+            this.clientesBindingNavigatorSaveItem.Click += new System.EventHandler(this.clientesBindingNavigatorSaveItem_Click);
+            // 
+            // clientesDataGridView
+            // 
+            this.clientesDataGridView.AllowUserToAddRows = false;
+            this.clientesDataGridView.AllowUserToDeleteRows = false;
+            this.clientesDataGridView.AutoGenerateColumns = false;
+            this.clientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.clientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.clientesDataGridView.DataSource = this.clientesBindingSource;
+            this.clientesDataGridView.Location = new System.Drawing.Point(374, 56);
+            this.clientesDataGridView.Name = "clientesDataGridView";
+            this.clientesDataGridView.Size = new System.Drawing.Size(519, 313);
+            this.clientesDataGridView.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -327,23 +267,89 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "NOMBRE";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Image = global::sistema_de_facturacion.Properties.Resources.agregar;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAgregar.Location = new System.Drawing.Point(26, 306);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(92, 63);
+            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::sistema_de_facturacion.Properties.Resources.guardar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(142, 306);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(92, 63);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.CausesValidation = false;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::sistema_de_facturacion.Properties.Resources.error;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(255, 306);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 63);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // documentIdTextBox
+            // 
+            this.documentIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "documentId", true));
+            this.documentIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.documentIdTextBox.Location = new System.Drawing.Point(188, 59);
+            this.documentIdTextBox.Multiline = true;
+            this.documentIdTextBox.Name = "documentIdTextBox";
+            this.documentIdTextBox.Size = new System.Drawing.Size(157, 26);
+            this.documentIdTextBox.TabIndex = 9;
+            this.documentIdTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.AllTextBox_Validating);
+            // 
+            // nombreCompletoTextBox
+            // 
+            this.nombreCompletoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "nombreCompleto", true));
+            this.nombreCompletoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreCompletoTextBox.Location = new System.Drawing.Point(188, 91);
+            this.nombreCompletoTextBox.Multiline = true;
+            this.nombreCompletoTextBox.Name = "nombreCompletoTextBox";
+            this.nombreCompletoTextBox.Size = new System.Drawing.Size(157, 60);
+            this.nombreCompletoTextBox.TabIndex = 11;
+            this.nombreCompletoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.AllTextBox_Validating);
+            // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 403);
+            this.ClientSize = new System.Drawing.Size(913, 403);
+            this.Controls.Add(documentIdLabel1);
+            this.Controls.Add(this.documentIdTextBox);
+            this.Controls.Add(nombreCompletoLabel1);
+            this.Controls.Add(this.nombreCompletoTextBox);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.clientesDataGridView);
-            this.Controls.Add(documentIdLabel);
-            this.Controls.Add(this.documentIdTextBox);
-            this.Controls.Add(nombreCompletoLabel);
-            this.Controls.Add(this.nombreCompletoTextBox);
             this.Controls.Add(this.clientesBindingNavigator);
             this.Name = "FrmClientes";
             this.ShowIcon = false;
             this.Text = "Administracion de clientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmClientes_FormClosing);
             this.Load += new System.EventHandler(this.FrmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
@@ -375,8 +381,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton clientesBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox documentIdTextBox;
-        private System.Windows.Forms.TextBox nombreCompletoTextBox;
         private System.Windows.Forms.DataGridView clientesDataGridView;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnGuardar;
@@ -384,5 +388,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.TextBox documentIdTextBox;
+        private System.Windows.Forms.TextBox nombreCompletoTextBox;
     }
 }

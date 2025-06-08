@@ -25,6 +25,23 @@ namespace sistema_de_facturacion.Models
 
     }
 
+    internal class Invoice { 
+    
+        public string factura_id { set; get; }
+        public string clientId { set; get; }
+        public string total { set; get; }
+
+    }
+
+    internal class InvoiceProduct
+    {
+
+        public string factura_id { set; get; }
+        public string clientId { set; get; }
+        public string total { set; get; }
+
+    }
+
     internal class FacturacionModel : ProviderSQL
     {
         public ResultPattern<List<Clientes>> GetClientes() {

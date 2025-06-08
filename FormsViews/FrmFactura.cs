@@ -74,7 +74,6 @@ namespace sistema_de_facturacion.FormsViews
             }
         }
 
-
         private void articulos_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dt = (DataGridView)sender;
