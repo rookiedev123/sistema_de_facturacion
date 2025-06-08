@@ -69,18 +69,18 @@ SELECT cliente_id, creado_en, nombreCompleto FROM clientes WHERE (cliente_id = @
   <xs:element name="ClientesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ClientesDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ClientesDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="clientes" msprop:Generator_RowClassName="clientesRow" msprop:Generator_RowEvHandlerName="clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="clientesRowDeleted" msprop:Generator_RowDeletingName="clientesRowDeleting" msprop:Generator_RowEvArgName="clientesRowChangeEvent" msprop:Generator_TablePropName="clientes" msprop:Generator_RowChangedName="clientesRowChanged" msprop:Generator_UserTableName="clientes" msprop:Generator_RowChangingName="clientesRowChanging" msprop:Generator_TableClassName="clientesDataTable" msprop:Generator_TableVarName="tableclientes">
+        <xs:element name="clientes" msprop:Generator_RowEvHandlerName="clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="clientesRowDeleted" msprop:Generator_RowDeletingName="clientesRowDeleting" msprop:Generator_RowEvArgName="clientesRowChangeEvent" msprop:Generator_TablePropName="clientes" msprop:Generator_RowChangedName="clientesRowChanged" msprop:Generator_UserTableName="clientes" msprop:Generator_RowChangingName="clientesRowChanging" msprop:Generator_RowClassName="clientesRow" msprop:Generator_TableClassName="clientesDataTable" msprop:Generator_TableVarName="tableclientes">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="cliente_id" msprop:Generator_UserColumnName="cliente_id" msprop:Generator_ColumnPropNameInTable="cliente_idColumn" msprop:Generator_ColumnPropNameInRow="cliente_id" msprop:Generator_ColumnVarNameInTable="columncliente_id">
+              <xs:element name="cliente_id" msprop:Generator_ColumnPropNameInTable="cliente_idColumn" msprop:Generator_ColumnPropNameInRow="cliente_id" msprop:Generator_UserColumnName="cliente_id" msprop:Generator_ColumnVarNameInTable="columncliente_id">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="creado_en" msprop:Generator_UserColumnName="creado_en" msprop:Generator_ColumnPropNameInTable="creado_enColumn" msprop:Generator_ColumnPropNameInRow="creado_en" msprop:Generator_ColumnVarNameInTable="columncreado_en" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="nombreCompleto" msprop:Generator_UserColumnName="nombreCompleto" msprop:Generator_ColumnPropNameInTable="nombreCompletoColumn" msprop:Generator_ColumnPropNameInRow="nombreCompleto" msprop:Generator_ColumnVarNameInTable="columnnombreCompleto">
+              <xs:element name="creado_en" msprop:Generator_ColumnPropNameInTable="creado_enColumn" msprop:Generator_ColumnPropNameInRow="creado_en" msprop:Generator_UserColumnName="creado_en" msprop:Generator_ColumnVarNameInTable="columncreado_en" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="nombreCompleto" msprop:Generator_ColumnPropNameInTable="nombreCompletoColumn" msprop:Generator_ColumnPropNameInRow="nombreCompleto" msprop:Generator_UserColumnName="nombreCompleto" msprop:Generator_ColumnVarNameInTable="columnnombreCompleto">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />

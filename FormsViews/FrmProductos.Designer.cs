@@ -435,7 +435,6 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private Datasets.ProductosDataSet productosDataSet;
         private System.Windows.Forms.BindingSource productosBindingSource;
         private Datasets.ProductosDataSetTableAdapters.productosTableAdapter productosTableAdapter;

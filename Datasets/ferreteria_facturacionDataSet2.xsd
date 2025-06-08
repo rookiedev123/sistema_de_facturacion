@@ -78,29 +78,29 @@ SELECT clienteId, [document], creado_en, nombres, apellidos FROM clientes WHERE 
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="ferreteria_facturacionDataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="ferreteria_facturacionDataSet2" msprop:Generator_DataSetName="ferreteria_facturacionDataSet2">
+  <xs:element name="ferreteria_facturacionDataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ferreteria_facturacionDataSet2" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ferreteria_facturacionDataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="clientes" msprop:Generator_RowEvHandlerName="clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="clientesRowDeleted" msprop:Generator_RowDeletingName="clientesRowDeleting" msprop:Generator_RowEvArgName="clientesRowChangeEvent" msprop:Generator_TablePropName="clientes" msprop:Generator_RowChangedName="clientesRowChanged" msprop:Generator_RowChangingName="clientesRowChanging" msprop:Generator_TableClassName="clientesDataTable" msprop:Generator_RowClassName="clientesRow" msprop:Generator_TableVarName="tableclientes" msprop:Generator_UserTableName="clientes">
+        <xs:element name="clientes" msprop:Generator_RowEvHandlerName="clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="clientesRowDeleted" msprop:Generator_RowDeletingName="clientesRowDeleting" msprop:Generator_RowEvArgName="clientesRowChangeEvent" msprop:Generator_TablePropName="clientes" msprop:Generator_RowChangedName="clientesRowChanged" msprop:Generator_UserTableName="clientes" msprop:Generator_RowChangingName="clientesRowChanging" msprop:Generator_RowClassName="clientesRow" msprop:Generator_TableClassName="clientesDataTable" msprop:Generator_TableVarName="tableclientes">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="clienteId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="clienteId" msprop:Generator_ColumnPropNameInTable="clienteIdColumn" msprop:Generator_ColumnVarNameInTable="columnclienteId" msprop:Generator_UserColumnName="clienteId" type="xs:int" />
-              <xs:element name="document" msprop:Generator_ColumnPropNameInRow="document" msprop:Generator_ColumnPropNameInTable="documentColumn" msprop:Generator_ColumnVarNameInTable="columndocument" msprop:Generator_UserColumnName="document" minOccurs="0">
+              <xs:element name="clienteId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="clienteIdColumn" msprop:Generator_ColumnPropNameInRow="clienteId" msprop:Generator_UserColumnName="clienteId" msprop:Generator_ColumnVarNameInTable="columnclienteId" type="xs:int" />
+              <xs:element name="document" msprop:Generator_ColumnPropNameInTable="documentColumn" msprop:Generator_ColumnPropNameInRow="document" msprop:Generator_UserColumnName="document" msprop:Generator_ColumnVarNameInTable="columndocument" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="creado_en" msprop:Generator_ColumnPropNameInRow="creado_en" msprop:Generator_ColumnPropNameInTable="creado_enColumn" msprop:Generator_ColumnVarNameInTable="columncreado_en" msprop:Generator_UserColumnName="creado_en" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="nombres" msprop:Generator_ColumnPropNameInRow="nombres" msprop:Generator_ColumnPropNameInTable="nombresColumn" msprop:Generator_ColumnVarNameInTable="columnnombres" msprop:Generator_UserColumnName="nombres">
+              <xs:element name="creado_en" msprop:Generator_ColumnPropNameInTable="creado_enColumn" msprop:Generator_ColumnPropNameInRow="creado_en" msprop:Generator_UserColumnName="creado_en" msprop:Generator_ColumnVarNameInTable="columncreado_en" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="nombres" msprop:Generator_ColumnPropNameInTable="nombresColumn" msprop:Generator_ColumnPropNameInRow="nombres" msprop:Generator_UserColumnName="nombres" msprop:Generator_ColumnVarNameInTable="columnnombres">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="apellidos" msprop:Generator_ColumnPropNameInRow="apellidos" msprop:Generator_ColumnPropNameInTable="apellidosColumn" msprop:Generator_ColumnVarNameInTable="columnapellidos" msprop:Generator_UserColumnName="apellidos">
+              <xs:element name="apellidos" msprop:Generator_ColumnPropNameInTable="apellidosColumn" msprop:Generator_ColumnPropNameInRow="apellidos" msprop:Generator_UserColumnName="apellidos" msprop:Generator_ColumnVarNameInTable="columnapellidos">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />

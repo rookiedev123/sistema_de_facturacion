@@ -8,12 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using sistema_de_facturacion.Models;
+using sistema_de_facturacion.Models.Connections;
+using sistema_de_facturacion.Models.Provider;
 
 
 namespace sistema_de_facturacion.FormsViews
 {
     public partial class FrmReporteVentasDocumento : Form
     {
+        FacturacionModel model;
+        BindingList<FacturaCliente> origenDatos;
+
         public FrmReporteVentasDocumento()
         {
             InitializeComponent();
@@ -21,64 +27,60 @@ namespace sistema_de_facturacion.FormsViews
 
         private void frmReporteDeVentas_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'ferreteria_facturacionDataSet2.clientes' Puede moverla o quitarla según sea necesario.
-            this.clientesTableAdapter.Fill(this.ferreteria_facturacionDataSet2.clientes);
-           
-            dtgReporteVentas.DataSource = null;
-            dtgReporteVentas.Rows.Clear();
+            model = new FacturacionModel();
+            model.SetConnectionString(new SqlDataConn());
+
+            ResultPattern<List<Clientes>> clientes = model.GetClientesAll();
+
+            if (!clientes.IsSuccess) {
+                MessageBox.Show(clientes.Error, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string[] clienteCache = clientes.Value.Select(p => p.cliente_id).ToArray();
 
 
+            foreach (string item in clienteCache)
+            {
+                cbxBuscadorClientes.Items.Add(item);
+            }
+
+            origenDatos = new BindingList<FacturaCliente>();
+            dtgReporteVentas.DataSource = origenDatos;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            int clienteId = Convert.ToInt32(cbxBuscadorClientes.SelectedValue);
-            DateTime fechaDesde = dtpDesdeR.Value.Date;
-            DateTime fechaHasta = dtpHastaR.Value.Date.AddDays(1).AddSeconds(-1);
+            origenDatos.Clear();
+        
+            DateTime inicio = dtpDesdeR.Value;
+            DateTime final = dtpHastaR.Value;
 
-            var conexionSql = new sistema_de_facturacion.Models.Connections.SqlDataConn();
-            string cadenaConexion = conexionSql.getConnectionString();
 
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-            {
-                try
-                {
-                    string query = @"
-                SELECT 
-                        f.factura_id as Factura,
-                        c.document as Documento,
-                        c.nombres as Nombres,
-                        c.apellidos as Apellidos,
-                        p.codigo as 'Codigo Producto',
-                        p.descripcion as Descripción,
-                        fp.cantidad as Cantidad,
-                        fp.total_descuento as Descuento,
-                        fp.total_pagar as Total
-		                FROM facturas f
-		                INNER JOIN clientes c ON f.clienteId = c.clienteId
-		                INNER JOIN facturas_productos fp ON f.factura_id = fp.factura_id
-		                INNER JOIN productos p ON fp.producto_id = p.producto_id
-		                WHERE f.clienteId = @clienteId
-		                AND f.creado_en BETWEEN @fechaDesde AND DATEADD(SECOND, -1, DATEADD(DAY, 1, @fechaHasta))";
 
-                    SqlCommand cmd = new SqlCommand(query, conexion);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.AddWithValue("@clienteId", clienteId);
-                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
-                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
+            Dictionary<string,object> parameters = new Dictionary<string, object>() {
+                {"clienteBuscado", cbxBuscadorClientes.Text},
+                {"fechaInicio", inicio.ToString("yyyy-MM-dd 00:00:00")},
+                {"fechaFin", final.ToString("yyyy-MM-dd 23:59:59")}
 
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+            };
 
-                    dtgReporteVentas.DataSource = dt;
-                }
-                catch (Exception ex) 
-                
-                {
-                    MessageBox.Show("Ingresar datos correctos","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
+            ResultPattern<List<FacturaCliente>> clientes = model.GetFacturaCliente(parameters);
+
+
+            if (!clientes.IsSuccess) {
+                MessageBox.Show(clientes.Error, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+
+
+            foreach (FacturaCliente item in clientes.Value)
+            {
+                origenDatos.Add(item);
+            }
+
+
         }
 
     }

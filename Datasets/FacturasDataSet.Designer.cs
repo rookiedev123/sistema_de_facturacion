@@ -449,6 +449,8 @@ namespace sistema_de_facturacion.Datasets {
             private void InitClass() {
                 this.columnfactura_id = new global::System.Data.DataColumn("factura_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfactura_id);
+                this.columnproducto_id = new global::System.Data.DataColumn("producto_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproducto_id);
                 this.columncantidad = new global::System.Data.DataColumn("cantidad", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncantidad);
                 this.columntotal_descuento = new global::System.Data.DataColumn("total_descuento", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -614,6 +616,16 @@ namespace sistema_de_facturacion.Datasets {
                 }
             }
             
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int producto_id {
+                get {
+                    return ((int)(this[this.tablefacturas_productos.producto_idColumn]));
+                }
+                set {
+                    this[this.tablefacturas_productos.producto_idColumn] = value;
+                }
+            }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -826,7 +838,7 @@ namespace sistema_de_facturacion.Datasets.FacturasDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[facturas_productos] ([factura_id], [producto_id], [cantidad], [total_descuento], [total_pagar]) VALUES (@factura_id, @producto_id, @cantidad, @total_descuento, @total_pagar);
-SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM facturas_productos WHERE (factura_id = @factura_id)";
+SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM facturas_productos WHERE (factura_id = @factura_id) AND (producto_id = @producto_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@factura_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@producto_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "producto_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -836,7 +848,7 @@ SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM fact
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[facturas_productos] SET [factura_id] = @factura_id, [producto_id] = @producto_id, [cantidad] = @cantidad, [total_descuento] = @total_descuento, [total_pagar] = @total_pagar WHERE (([factura_id] = @Original_factura_id) AND ([producto_id] = @Original_producto_id) AND ([cantidad] = @Original_cantidad) AND ([total_descuento] = @Original_total_descuento) AND ([total_pagar] = @Original_total_pagar));
-SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM facturas_productos WHERE (factura_id = @factura_id)";
+SELECT factura_id, producto_id, cantidad, total_descuento, total_pagar FROM facturas_productos WHERE (factura_id = @factura_id) AND (producto_id = @producto_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@factura_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "factura_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@producto_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "producto_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
