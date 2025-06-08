@@ -65,7 +65,7 @@ namespace sistema_de_facturacion.Models
         public string creado_en { get; set; }
         public string tipo_pago { get; set; }
 
-        public string client_id { get; set; }
+        public string cliente_id { get; set; }
         public string nombreCompleto { get; set; }
     }
 

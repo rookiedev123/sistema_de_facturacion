@@ -61,7 +61,7 @@
             this.dtgfacturas_producto.ReadOnly = true;
             this.dtgfacturas_producto.RowHeadersWidth = 51;
             this.dtgfacturas_producto.RowTemplate.Height = 24;
-            this.dtgfacturas_producto.Size = new System.Drawing.Size(759, 281);
+            this.dtgfacturas_producto.Size = new System.Drawing.Size(1042, 363);
             this.dtgfacturas_producto.TabIndex = 1;
             // 
             // dtpDesde
@@ -107,8 +107,6 @@
             this.cbxProductos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbxProductos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxProductos.BackColor = System.Drawing.Color.Silver;
-            this.cbxProductos.DataSource = this.productosBindingSource2;
-            this.cbxProductos.DisplayMember = "descripcion";
             this.cbxProductos.FormattingEnabled = true;
             this.cbxProductos.Location = new System.Drawing.Point(30, 103);
             this.cbxProductos.Margin = new System.Windows.Forms.Padding(2);
@@ -142,7 +140,7 @@
             // 
             this.btnActualizarRepVtaDet.BackColor = System.Drawing.Color.Lavender;
             this.btnActualizarRepVtaDet.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizarRepVtaDet.Location = new System.Drawing.Point(530, 46);
+            this.btnActualizarRepVtaDet.Location = new System.Drawing.Point(918, 58);
             this.btnActualizarRepVtaDet.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizarRepVtaDet.Name = "btnActualizarRepVtaDet";
             this.btnActualizarRepVtaDet.Size = new System.Drawing.Size(139, 66);
@@ -159,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 449);
+            this.ClientSize = new System.Drawing.Size(1068, 515);
             this.Controls.Add(this.btnActualizarRepVtaDet);
             this.Controls.Add(this.lblProductos);
             this.Controls.Add(this.cbxProductos);
