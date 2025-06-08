@@ -89,6 +89,7 @@
             this.btnClientes.TabIndex = 3;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnControlPagos
             // 
@@ -106,7 +107,7 @@
             this.lblReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReportes.Location = new System.Drawing.Point(459, 81);
             this.lblReportes.Name = "lblReportes";
-            this.lblReportes.Size = new System.Drawing.Size(177, 32);
+            this.lblReportes.Size = new System.Drawing.Size(141, 26);
             this.lblReportes.TabIndex = 7;
             this.lblReportes.Text = "REPORTES";
             // 
@@ -116,7 +117,7 @@
             this.lblFacturación.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFacturación.Location = new System.Drawing.Point(48, 81);
             this.lblFacturación.Name = "lblFacturación";
-            this.lblFacturación.Size = new System.Drawing.Size(226, 32);
+            this.lblFacturación.Size = new System.Drawing.Size(181, 26);
             this.lblFacturación.TabIndex = 8;
             this.lblFacturación.Text = "FACTURACION";
             // 

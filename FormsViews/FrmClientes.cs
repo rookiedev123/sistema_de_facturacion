@@ -18,6 +18,8 @@ namespace sistema_de_facturacion.FormsViews
             InitializeComponent();
         }
 
+
+
         private void clientesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -26,17 +28,9 @@ namespace sistema_de_facturacion.FormsViews
 
         }
 
-        private void clientesBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.clientesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.clientesDataSet);
-
-        }
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.clientes' Puede moverla o quitarla según sea necesario.
             this.clientesTableAdapter.Fill(this.clientesDataSet.clientes);
 
         }
@@ -62,9 +56,28 @@ namespace sistema_de_facturacion.FormsViews
 
         }
 
-        private void FrmProductos_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            this.clientesBindingSource.AddNew();
+            btnAgregar.Enabled = false;
+            documentIdTextBox.Select();
+        }
+
+        private void FrmClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
             clientesDataSet.Dispose();
+        }
+
+        private void AllTextBox_Validating(object sender, CancelEventArgs e)
+        {
+
+            TextBox t = sender as TextBox;
+
+            if (t.Text == string.Empty) {
+                MessageBox.Show("Ingrese los campos necesarios", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                t.Select();
+                e.Cancel = true;
+            }
         }
     }
 }

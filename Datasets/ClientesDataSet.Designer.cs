@@ -801,13 +801,12 @@ namespace sistema_de_facturacion.Datasets.ClientesDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombreCompleto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombreCompleto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[clientes] ([documentId], [creado_en], [nombreCompleto]) VALUES" +
-                " (@documentId, @creado_en, @nombreCompleto);\r\nSELECT documentId, creado_en, nomb" +
-                "reCompleto FROM clientes WHERE (documentId = @documentId)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[clientes] ([documentId],  [nombreCompleto]) VALUES (@documentI" +
+                "d, @nombreCompleto);\r\nSELECT documentId, creado_en, nombreCompleto FROM clientes" +
+                " WHERE (documentId = @documentId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@documentId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "documentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@creado_en", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "creado_en", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombreCompleto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombreCompleto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@documentId", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "documentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombreCompleto", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "nombreCompleto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[clientes] SET [documentId] = @documentId, [creado_en] = @creado_en, [nombreCompleto] = @nombreCompleto WHERE (([documentId] = @Original_documentId) AND ((@IsNull_creado_en = 1 AND [creado_en] IS NULL) OR ([creado_en] = @Original_creado_en)) AND ([nombreCompleto] = @Original_nombreCompleto));
@@ -937,24 +936,18 @@ SELECT documentId, creado_en, nombreCompleto FROM clientes WHERE (documentId = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string documentId, global::System.Nullable<global::System.DateTime> creado_en, string nombreCompleto) {
+        public virtual int Insert(string documentId, string nombreCompleto) {
             if ((documentId == null)) {
                 throw new global::System.ArgumentNullException("documentId");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(documentId));
             }
-            if ((creado_en.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(creado_en.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
             if ((nombreCompleto == null)) {
                 throw new global::System.ArgumentNullException("nombreCompleto");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(nombreCompleto));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(nombreCompleto));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

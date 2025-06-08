@@ -12,14 +12,12 @@ namespace sistema_de_facturacion
         public HomeForm()
         {
             InitializeComponent();
-
-
         }
 
         private void btn_facturar_Click(object sender, EventArgs e)
         {
             facturaForm = new FrmFactura();
-            facturaForm.Show();
+            facturaForm.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,18 +30,24 @@ namespace sistema_de_facturacion
         private void btnReportesDeVentas_Click(object sender, EventArgs e)
         {
             FrmReporteVentasDocumento frmRepVta = new FrmReporteVentasDocumento();
-            frmRepVta.Show();
+            frmRepVta.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             FrmReporteVentasDetalle frmRepVtaDet = new FrmReporteVentasDetalle();
-            frmRepVtaDet.Show();
+            frmRepVtaDet.ShowDialog();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            FrmClientes frmClientes = new FrmClientes();
+            frmClientes.ShowDialog();
         }
     }
 }
