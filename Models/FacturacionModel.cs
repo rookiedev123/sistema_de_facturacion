@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using sistema_de_facturacion.Models.Provider;
 
 namespace sistema_de_facturacion.Models
 {
     internal class Clientes { 
     
-        public string dui { set; get; }
-        public string creado_en { set; get; }
-        public string nombres { set; get; }
-        public string apellidos { set; get; }
+        public string cliente_id { set; get; }
+        public string nombreCompleto { set; get; }
 
 
     }
@@ -25,37 +24,23 @@ namespace sistema_de_facturacion.Models
 
     }
 
-    internal class Invoice { 
-    
-        public string factura_id { set; get; }
-        public string clientId { set; get; }
-        public string total { set; get; }
-
-    }
-
-    internal class InvoiceProduct
+    internal class FacturaIdResult
     {
 
         public string factura_id { set; get; }
-        public string clientId { set; get; }
-        public string total { set; get; }
+
+
 
     }
 
     internal class FacturacionModel : ProviderSQL
     {
-        public ResultPattern<List<Clientes>> GetClientes() {
+        public ResultPattern<List<Clientes>> GetClientes(Dictionary<string, object> parameter) {
 
-            string sql = "select * from clientes";
+            string sql = "select * from clientes where cliente_id = @cliente_id";
 
-            return this.SelectSentences<Clientes>(sql);
+            return this.SelectSentences<Clientes>(sql, parameter);
 
-        }
-        //prueba
-        public ResultPattern<List<Clientes>> GetClientes(Dictionary<string, object> parameter)
-        {
-            string sql = "select document,nombres,apellidos from clientes";
-            return this.SelectSentences<Clientes>(sql,parameter);
         }
 
         public ResultPattern<List<Productos>> GetProducts()
@@ -73,6 +58,40 @@ namespace sistema_de_facturacion.Models
             string sql = "select codigo,descripcion,precio,descuento from productos where codigo = @codigo";
 
             return this.SelectSentences<Productos>(sql, parameter);
+
+        }
+
+
+        public ResultPattern<int> InsertarCliente(Dictionary<string, object> parameters)
+        {
+
+
+            string sql = @"INSERT INTO Clientes(cliente_id,nombreCompleto)
+            values(@cliente_id,@nombreCompleto)";
+
+            return ExecuteSentences(sql, parameters);
+
+        }
+
+        public ResultPattern<List<FacturaIdResult>> InsertarFactura(Dictionary<string, object> parameters) {
+
+
+            string sql = @"INSERT INTO facturas(tipo_pago,cliente_id,total)
+            OUTPUT INSERTED.factura_id
+            values(@tipo_pago,@cliente_id,@total)";
+
+            return SelectSentences<FacturaIdResult>(sql, parameters);
+
+        }
+
+        public ResultPattern<int> InsertarFacturaProductos(Dictionary<string, object> parameters)
+        {
+
+
+            string sql = @"INSERT INTO facturas_productos(factura_id,codigo,cantidad,total_descuento,total_pagar)
+            values(@factura_id,@codigo,@cantidad,@total_descuento,@total_pagar)";
+
+            return ExecuteSentences(sql, parameters);
 
         }
 

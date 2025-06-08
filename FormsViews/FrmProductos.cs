@@ -43,7 +43,6 @@ namespace sistema_de_facturacion.FormsViews
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'productosDataSet.productos' Puede moverla o quitarla según sea necesario.
             this.productosTableAdapter.Fill(this.productosDataSet.productos);
             this.productosTableAdapter.ClearBeforeFill = true;
 
@@ -68,20 +67,6 @@ namespace sistema_de_facturacion.FormsViews
 
         }
 
-        /*
-        private void productosDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            MessageBox.Show(e.Exception.Message);
-            btnAgregar.Enabled = true;
-            e.Cancel = true;
-            this.productosBindingSource.CancelEdit();
-            this.productosDataSet.RejectChanges();
-            this.productosTableAdapter.Fill(productosDataSet.productos);
-
-
-        }
-        */
-
         private void productosDataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
             DataGridView dt = sender as DataGridView;
@@ -100,15 +85,30 @@ namespace sistema_de_facturacion.FormsViews
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.productosBindingSource.CancelEdit(); 
+
+            var autoValidate = this.AutoValidate;
+            this.AutoValidate = AutoValidate.Disable;
+
+            this.productosBindingSource.CancelEdit();
             this.productosDataSet.RejectChanges();
             btnAgregar.Enabled = true;
+
+            this.AutoValidate = autoValidate;
+            
 
         }
 
         private void FrmProductos_FormClosing(object sender, FormClosingEventArgs e)
         {
             productosDataSet.Dispose();
+        }
+
+        private void productosBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.productosBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.productosDataSet);
+
         }
     }
 }

@@ -19,16 +19,6 @@ namespace sistema_de_facturacion.FormsViews
         }
 
 
-
-        private void clientesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.clientesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.clientesDataSet);
-
-        }
-
-
         private void FrmClientes_Load(object sender, EventArgs e)
         {
             this.clientesTableAdapter.Fill(this.clientesDataSet.clientes);
@@ -50,9 +40,15 @@ namespace sistema_de_facturacion.FormsViews
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+
+            var autoValidate = this.AutoValidate;
+            this.AutoValidate = AutoValidate.Disable;
+            
             this.clientesBindingSource.CancelEdit();
             this.clientesDataSet.RejectChanges();
             btnAgregar.Enabled = true;
+
+            this.AutoValidate = autoValidate;
 
         }
 
@@ -60,7 +56,7 @@ namespace sistema_de_facturacion.FormsViews
         {
             this.clientesBindingSource.AddNew();
             btnAgregar.Enabled = false;
-            documentIdTextBox.Select();
+            cliente_idTextBox.Select();
         }
 
         private void FrmClientes_FormClosing(object sender, FormClosingEventArgs e)
@@ -79,5 +75,14 @@ namespace sistema_de_facturacion.FormsViews
                 e.Cancel = true;
             }
         }
+
+        private void clientesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.clientesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.clientesDataSet);
+
+        }
+
     }
 }

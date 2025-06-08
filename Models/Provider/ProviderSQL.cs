@@ -77,5 +77,25 @@ namespace sistema_de_facturacion.Models.Provider
 
         }
 
+         public ResultPattern<int> SqlWithLastId(string sql, Dictionary<string, object> parameters = null)
+        {
+
+            int data = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connString.getConnectionString()))
+                {
+                    data = connection.QuerySingle<int>(sql, parameters);
+                }
+            }
+            catch (Exception e)
+            {
+                return ResultPattern<int>.Failure(e.Message);
+            }
+            return ResultPattern<int>.Success(data);
+
+        }
+
     }
 }

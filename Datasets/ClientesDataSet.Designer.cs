@@ -279,7 +279,7 @@ namespace sistema_de_facturacion.Datasets {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class clientesDataTable : global::System.Data.TypedTableBase<clientesRow> {
             
-            private global::System.Data.DataColumn columndocumentId;
+            private global::System.Data.DataColumn columncliente_id;
             
             private global::System.Data.DataColumn columncreado_en;
             
@@ -320,9 +320,9 @@ namespace sistema_de_facturacion.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn documentIdColumn {
+            public global::System.Data.DataColumn cliente_idColumn {
                 get {
-                    return this.columndocumentId;
+                    return this.columncliente_id;
                 }
             }
             
@@ -379,10 +379,10 @@ namespace sistema_de_facturacion.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public clientesRow AddclientesRow(string documentId, System.DateTime creado_en, string nombreCompleto) {
+            public clientesRow AddclientesRow(string cliente_id, System.DateTime creado_en, string nombreCompleto) {
                 clientesRow rowclientesRow = ((clientesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        documentId,
+                        cliente_id,
                         creado_en,
                         nombreCompleto};
                 rowclientesRow.ItemArray = columnValuesArray;
@@ -392,9 +392,9 @@ namespace sistema_de_facturacion.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public clientesRow FindBydocumentId(string documentId) {
+            public clientesRow FindBycliente_id(string cliente_id) {
                 return ((clientesRow)(this.Rows.Find(new object[] {
-                            documentId})));
+                            cliente_id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -414,7 +414,7 @@ namespace sistema_de_facturacion.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columndocumentId = base.Columns["documentId"];
+                this.columncliente_id = base.Columns["cliente_id"];
                 this.columncreado_en = base.Columns["creado_en"];
                 this.columnnombreCompleto = base.Columns["nombreCompleto"];
             }
@@ -422,17 +422,17 @@ namespace sistema_de_facturacion.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columndocumentId = new global::System.Data.DataColumn("documentId", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndocumentId);
+                this.columncliente_id = new global::System.Data.DataColumn("cliente_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncliente_id);
                 this.columncreado_en = new global::System.Data.DataColumn("creado_en", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncreado_en);
                 this.columnnombreCompleto = new global::System.Data.DataColumn("nombreCompleto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombreCompleto);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columndocumentId}, true));
-                this.columndocumentId.AllowDBNull = false;
-                this.columndocumentId.Unique = true;
-                this.columndocumentId.MaxLength = 50;
+                                this.columncliente_id}, true));
+                this.columncliente_id.AllowDBNull = false;
+                this.columncliente_id.Unique = true;
+                this.columncliente_id.MaxLength = 50;
                 this.columnnombreCompleto.AllowDBNull = false;
                 this.columnnombreCompleto.MaxLength = 500;
             }
@@ -577,12 +577,12 @@ namespace sistema_de_facturacion.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string documentId {
+            public string cliente_id {
                 get {
-                    return ((string)(this[this.tableclientes.documentIdColumn]));
+                    return ((string)(this[this.tableclientes.cliente_idColumn]));
                 }
                 set {
-                    this[this.tableclientes.documentIdColumn] = value;
+                    this[this.tableclientes.cliente_idColumn] = value;
                 }
             }
             
@@ -785,37 +785,37 @@ namespace sistema_de_facturacion.Datasets.ClientesDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "clientes";
-            tableMapping.ColumnMappings.Add("documentId", "documentId");
+            tableMapping.ColumnMappings.Add("cliente_id", "cliente_id");
             tableMapping.ColumnMappings.Add("creado_en", "creado_en");
             tableMapping.ColumnMappings.Add("nombreCompleto", "nombreCompleto");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[clientes] WHERE (([documentId] = @Original_documentId) AND ((@" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[clientes] WHERE (([cliente_id] = @Original_cliente_id) AND ((@" +
                 "IsNull_creado_en = 1 AND [creado_en] IS NULL) OR ([creado_en] = @Original_creado" +
                 "_en)) AND ([nombreCompleto] = @Original_nombreCompleto))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_documentId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "documentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cliente_id", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cliente_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_creado_en", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "creado_en", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_creado_en", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "creado_en", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombreCompleto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombreCompleto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[clientes] ([documentId],  [nombreCompleto]) VALUES (@documentI" +
-                "d, @nombreCompleto);\r\nSELECT documentId, creado_en, nombreCompleto FROM clientes" +
-                " WHERE (documentId = @documentId)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[clientes] ([cliente_id], [nombreCompleto]) VALUES (@cliente_id" +
+                ",  @nombreCompleto);\r\nSELECT cliente_id, creado_en, nombreCompleto FROM clientes" +
+                " WHERE (cliente_id = @cliente_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@documentId", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "documentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cliente_id", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "cliente_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombreCompleto", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "nombreCompleto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[clientes] SET [documentId] = @documentId, [creado_en] = @creado_en, [nombreCompleto] = @nombreCompleto WHERE (([documentId] = @Original_documentId) AND ((@IsNull_creado_en = 1 AND [creado_en] IS NULL) OR ([creado_en] = @Original_creado_en)) AND ([nombreCompleto] = @Original_nombreCompleto));
-SELECT documentId, creado_en, nombreCompleto FROM clientes WHERE (documentId = @documentId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[clientes] SET [cliente_id] = @cliente_id, [creado_en] = @creado_en, [nombreCompleto] = @nombreCompleto WHERE (([cliente_id] = @Original_cliente_id) AND ((@IsNull_creado_en = 1 AND [creado_en] IS NULL) OR ([creado_en] = @Original_creado_en)) AND ([nombreCompleto] = @Original_nombreCompleto));
+SELECT cliente_id, creado_en, nombreCompleto FROM clientes WHERE (cliente_id = @cliente_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@documentId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "documentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cliente_id", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cliente_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@creado_en", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "creado_en", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombreCompleto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombreCompleto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_documentId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "documentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cliente_id", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cliente_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_creado_en", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "creado_en", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_creado_en", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "creado_en", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombreCompleto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombreCompleto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -834,7 +834,7 @@ SELECT documentId, creado_en, nombreCompleto FROM clientes WHERE (documentId = @
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT documentId, creado_en, nombreCompleto FROM dbo.clientes";
+            this._commandCollection[0].CommandText = "SELECT cliente_id, creado_en, nombreCompleto FROM dbo.clientes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -895,12 +895,12 @@ SELECT documentId, creado_en, nombreCompleto FROM clientes WHERE (documentId = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_documentId, global::System.Nullable<global::System.DateTime> Original_creado_en, string Original_nombreCompleto) {
-            if ((Original_documentId == null)) {
-                throw new global::System.ArgumentNullException("Original_documentId");
+        public virtual int Delete(string Original_cliente_id, global::System.Nullable<global::System.DateTime> Original_creado_en, string Original_nombreCompleto) {
+            if ((Original_cliente_id == null)) {
+                throw new global::System.ArgumentNullException("Original_cliente_id");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_documentId));
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_cliente_id));
             }
             if ((Original_creado_en.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -936,12 +936,12 @@ SELECT documentId, creado_en, nombreCompleto FROM clientes WHERE (documentId = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string documentId, string nombreCompleto) {
-            if ((documentId == null)) {
-                throw new global::System.ArgumentNullException("documentId");
+        public virtual int Insert(string cliente_id, string nombreCompleto) {
+            if ((cliente_id == null)) {
+                throw new global::System.ArgumentNullException("cliente_id");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(documentId));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(cliente_id));
             }
             if ((nombreCompleto == null)) {
                 throw new global::System.ArgumentNullException("nombreCompleto");
@@ -969,12 +969,12 @@ SELECT documentId, creado_en, nombreCompleto FROM clientes WHERE (documentId = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string documentId, global::System.Nullable<global::System.DateTime> creado_en, string nombreCompleto, string Original_documentId, global::System.Nullable<global::System.DateTime> Original_creado_en, string Original_nombreCompleto) {
-            if ((documentId == null)) {
-                throw new global::System.ArgumentNullException("documentId");
+        public virtual int Update(string cliente_id, global::System.Nullable<global::System.DateTime> creado_en, string nombreCompleto, string Original_cliente_id, global::System.Nullable<global::System.DateTime> Original_creado_en, string Original_nombreCompleto) {
+            if ((cliente_id == null)) {
+                throw new global::System.ArgumentNullException("cliente_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(documentId));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(cliente_id));
             }
             if ((creado_en.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(creado_en.Value));
@@ -988,11 +988,11 @@ SELECT documentId, creado_en, nombreCompleto FROM clientes WHERE (documentId = @
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(nombreCompleto));
             }
-            if ((Original_documentId == null)) {
-                throw new global::System.ArgumentNullException("Original_documentId");
+            if ((Original_cliente_id == null)) {
+                throw new global::System.ArgumentNullException("Original_cliente_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_documentId));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_cliente_id));
             }
             if ((Original_creado_en.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
@@ -1028,8 +1028,8 @@ SELECT documentId, creado_en, nombreCompleto FROM clientes WHERE (documentId = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> creado_en, string nombreCompleto, string Original_documentId, global::System.Nullable<global::System.DateTime> Original_creado_en, string Original_nombreCompleto) {
-            return this.Update(Original_documentId, creado_en, nombreCompleto, Original_documentId, Original_creado_en, Original_nombreCompleto);
+        public virtual int Update(global::System.Nullable<global::System.DateTime> creado_en, string nombreCompleto, string Original_cliente_id, global::System.Nullable<global::System.DateTime> Original_creado_en, string Original_nombreCompleto) {
+            return this.Update(Original_cliente_id, creado_en, nombreCompleto, Original_cliente_id, Original_creado_en, Original_nombreCompleto);
         }
     }
     

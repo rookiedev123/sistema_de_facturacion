@@ -16,6 +16,7 @@ namespace sistema_de_facturacion.FormsViews
     public partial class FrmFactura : Form
     {
         private Factura factura;
+        private bool existeCliente = false;
         private string[] productoCache;
         List<Impuesto> impuestos;
         private FacturacionModel model;
@@ -188,7 +189,34 @@ namespace sistema_de_facturacion.FormsViews
             if (mskd.MaskFull == false) {
                 MessageBox.Show("Debe completar el formato del campo", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Cancel = true;
+                return;
             }
+
+            Dictionary<string,object> parametros = new Dictionary<string, object>() {
+                { "cliente_id", mskd.Text.Replace("-", "")}
+            };
+
+            ResultPattern<List<Clientes>> clientes =  model.GetClientes(parametros);
+
+            if (!clientes.IsSuccess) {
+                MessageBox.Show($"Error de verificacion de clientes {mskd.Text.Replace("-", "")} no se puede continuar", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+                return;
+            }
+
+
+            if (clientes.Value.Count > 0) {
+
+                txtNombreCliente.Text = clientes.Value[0].nombreCompleto;
+                txtNombreCliente.ReadOnly = true;
+                existeCliente = true;
+                cboTipoPago.Select();
+                return;
+
+
+            }
+
+
 
         }
 
@@ -214,7 +242,7 @@ namespace sistema_de_facturacion.FormsViews
 
             if (cboTipoDocumento.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe seleccionar un el tipo de documento", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un el tipo de pago", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Cancel = true;
             }
         }
@@ -326,6 +354,9 @@ namespace sistema_de_facturacion.FormsViews
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
+            var autoValidate = this.AutoValidate;
+            this.AutoValidate = AutoValidate.Disable;
+
             cboTipoDocumento.SelectedIndex = -1;
             mktxtCodigoCliente.Text = String.Empty;
             mktxtCodigoCliente.Mask = String.Empty;
@@ -338,6 +369,8 @@ namespace sistema_de_facturacion.FormsViews
             txtNetoTotal.Text = String.Empty;
             txtDevolver.Text = String.Empty;
             chkFacturaFiscal.Checked = false;
+            existeCliente = false;
+            txtNombreCliente.ReadOnly = false;
 
             factura.LimpiarArticulos();
             factura = null;
@@ -345,16 +378,87 @@ namespace sistema_de_facturacion.FormsViews
             articulos_dataGridView.DataSource = factura.articulos;
 
             cboTipoDocumento.Select();
+
+            this.AutoValidate = autoValidate;
+
         }
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            IFacturaGenerator  facturaArchivo;
+            IFacturaGenerator facturaArchivo;
 
-            if (factura.articulos.Count == 0) {
+
+            if (factura.articulos.Count == 0)
+            {
                 MessageBox.Show("Nada que facturar", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
+            //Insertar cliente si no existe
+            if (!existeCliente) {
+
+
+                Dictionary<string, object> paramsCliente = new Dictionary<string, object>()
+                {
+                    { "cliente_id", mktxtCodigoCliente.Text.Replace("-", "") },
+                    { "nombreCompleto", txtNombreCliente.Text },
+                };
+
+                ResultPattern<int> insertCliente = model.InsertarCliente(paramsCliente);
+
+                if (!insertCliente.IsSuccess)
+                {
+                    MessageBox.Show(insertCliente.Error, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+            }
+
+
+            //Insertar entrada de factura
+            Dictionary<string, object> paramsFactura = new Dictionary<string, object>()
+            {
+                { "cliente_id", mktxtCodigoCliente.Text.Replace("-", "") },
+                { "tipo_pago", cboTipoPago.Text },
+                { "total", factura.TotalNeto.ToString() },
+            };
+
+            ResultPattern<List<FacturaIdResult>> insertFactura =  model.InsertarFactura(paramsFactura);
+
+            if (!insertFactura.IsSuccess) {
+                MessageBox.Show(insertFactura.Error, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            factura.FacturaId = insertFactura.Value[0].factura_id.PadRight(10, '0');
+
+
+            //Insertar en
+            ResultPattern<int> insertArticulo;
+            Dictionary<string, object> paramsArticulo;
+
+            foreach (Articulo item in factura.articulos)
+            {
+                paramsArticulo = new Dictionary<string, object> {
+                    {"factura_id",insertFactura.Value[0].factura_id},
+                    {"codigo",item.Codigo },
+                    {"cantidad",item.Cantidad },
+                    {"total_descuento",item.TotalDesc },
+                    {"total_pagar",item.TotalNeto }
+                };
+
+                insertArticulo = model.InsertarFacturaProductos(paramsArticulo);
+
+                if (!insertArticulo.IsSuccess)
+                {
+                    MessageBox.Show(insertArticulo.Error, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+            }
+
 
 
             if (chkFacturaFiscal.Checked == true)

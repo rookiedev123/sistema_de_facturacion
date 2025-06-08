@@ -6,10 +6,10 @@ using sistema_de_facturacion.Services.Facturacion;
 
 namespace sistema_de_facturacion
 {
-    public partial class HomeForm : Form
+    public partial class FrmMenu : Form
     {
         FrmFactura facturaForm;
-        public HomeForm()
+        public FrmMenu()
         {
             InitializeComponent();
         }
